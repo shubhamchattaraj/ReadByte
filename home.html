@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReadByte | Home</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#050816;
+color:#ffffff;
+overflow-x:hidden;
+min-height:100vh;
+}
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 20% 20%,rgba(139,92,246,.25),transparent 25%),
+radial-gradient(circle at 80% 30%,rgba(0,191,255,.20),transparent 25%),
+radial-gradient(circle at 50% 80%,rgba(236,72,153,.15),transparent 30%);
+z-index:-2;
+}
+
+body::after{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+background-size:50px 50px;
+z-index:-1;
+}
+
+nav{
+position:sticky;
+top:0;
+z-index:1000;
+backdrop-filter:blur(15px);
+background:rgba(5,8,22,.75);
+border-bottom:1px solid rgba(139,92,246,.25);
+}
+
+.nav-container{
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 30px;
+}
+
+.logo{
+font-family:'Orbitron',sans-serif;
+font-size:1.8rem;
+font-weight:800;
+letter-spacing:3px;
+color:#8b5cf6;
+text-shadow:0 0 20px #8b5cf6;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#d1d5db;
+font-weight:500;
+transition:.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+color:#60a5fa;
+text-shadow:0 0 10px #60a5fa;
+}
+
+.hero{
+min-height:85vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px 25px;
+}
+
+.hero h1{
+font-family:'Orbitron',sans-serif;
+font-size:clamp(4rem,10vw,8rem);
+font-weight:800;
+letter-spacing:10px;
+margin-bottom:25px;
+background:
+linear-gradient(
+    90deg,
+    #8b5cf6,
+    #60a5fa,
+    #ec4899
+);
+background-clip:text;
+-webkit-background-clip:text;
+color:transparent;
+-webkit-text-fill-color:transparent;
+text-shadow:
+    0 0 30px rgba(139,92,246,.3);
+}
+
+.hero p{
+    max-width:850px;
+    font-family:'Rajdhani',sans-serif;
+    font-size:1.3rem;
+    font-weight:500;
+    color:#cbd5e1;
+    line-height:2;
+    letter-spacing:.6px;
+    text-align:center;
+    margin-bottom:45px;
+    text-shadow:
+        0 0 10px rgba(255,255,255,.05);
+}
+
+.hero-btn{
+display:inline-block;
+padding:16px 40px;
+font-size:1rem;
+font-weight:600;
+text-decoration:none;
+color:white;
+border:1px solid rgba(139,92,246,.6);
+border-radius:12px;
+background:rgba(139,92,246,.15);
+backdrop-filter:blur(10px);
+box-shadow:
+0 0 15px rgba(139,92,246,.4),
+0 0 40px rgba(96,165,250,.2);
+transition:.3s;
+}
+
+.hero-btn:hover{
+transform:translateY(-4px);
+box-shadow:
+0 0 25px rgba(139,92,246,.7),
+0 0 60px rgba(96,165,250,.4);
+}
+
+.hero-actions{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:15px;
+}
+
+.archive-btn{
+    border:1px solid rgba(96,165,250,.6);
+    background:rgba(96,165,250,.12);
+    box-shadow:
+        0 0 15px rgba(96,165,250,.35),
+        0 0 40px rgba(96,165,250,.15);
+}
+
+.archive-btn:hover{
+    box-shadow:
+        0 0 25px rgba(96,165,250,.7),
+        0 0 60px rgba(96,165,250,.35);
+}
+
+.about{
+max-width:1000px;
+margin:auto;
+padding:80px 30px 120px;
+text-align:center;
+}
+
+.about h2{
+font-family:'Orbitron',sans-serif;
+font-size:2rem;
+margin-bottom:25px;
+color:#8b5cf6;
+}
+
+.about p{
+color:#cbd5e1;
+line-height:1.9;
+font-size:1.05rem;
+margin-bottom:20px;
+}
+
+footer{
+border-top:1px solid rgba(139,92,246,.2);
+padding:30px;
+text-align:center;
+color:#94a3b8;
+}
+
+.scanlines{
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:1;
+background:
+repeating-linear-gradient(
+to bottom,
+rgba(255,255,255,.02),
+rgba(255,255,255,.02) 1px,
+transparent 1px,
+transparent 4px
+);
+
+opacity:.25;
+}
+
+.archive-tag{
+    font-family:'Orbitron',sans-serif;
+    font-size:.85rem;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:#60a5fa;
+    margin-bottom:30px;
+    opacity:.9;
+    text-shadow:
+        0 0 10px rgba(96,165,250,.8),
+        0 0 20px rgba(96,165,250,.3);
+}
+
+.features{
+max-width:1200px;
+margin:0 auto 120px;
+padding:0 30px;
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.feature-card{
+background:rgba(255,255,255,.04);
+border:1px solid rgba(139,92,246,.25);
+border-radius:20px;
+padding:35px;
+backdrop-filter:blur(15px);
+transition:.3s;
+}
+
+.feature-card:hover{
+transform:translateY(-8px);
+box-shadow:
+0 0 20px rgba(139,92,246,.3);
+}
+
+.feature-card h3{
+font-family:'Orbitron',sans-serif;
+color:#8b5cf6;
+margin-bottom:15px;
+}
+
+@keyframes pulseGlow{
+0%{filter:blur(0px);}
+50%{filter:blur(20px);}
+100%{filter:blur(0px);}
+}
+
+body::before{
+animation:pulseGlow 12s ease-in-out infinite;
+}
+
+.uplink-header{
+    text-align:center;
+    margin-top:50px;
+    margin-bottom:0;
+}
+
+.uplink-tag{
+    font-family:'Orbitron',sans-serif;
+    font-size:1.8rem;
+    letter-spacing:6px;
+    color:#8b5cf6;
+    text-transform:uppercase;
+    text-shadow:
+        0 0 10px rgba(139,92,246,.8),
+        0 0 20px rgba(139,92,246,.4);
+}
+
+.status-grid{
+    max-width:1000px;
+    margin:20px auto 70px;
+    display:grid;
+    grid-template-columns:
+    repeat(3,1fr);
+    gap:25px;
+}
+
+.status-card{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(139,92,246,.25);
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    backdrop-filter:blur(15px);
+    transition:.3s;
+}
+
+.status-card:hover{
+    transform:translateY(-8px);
+    box-shadow:
+        0 0 20px rgba(139,92,246,.25),
+        0 0 50px rgba(96,165,250,.15);
+}
+
+.status-card span{
+    display:block;
+    font-family:'Orbitron',sans-serif;
+    font-size:2rem;
+    margin-bottom:12px;
+    color:#8b5cf6;
+}
+
+.status-card p{
+    color:#cbd5e1;
+    font-size:.95rem;
+}
+
+.online{
+    color:#22c55e !important;
+    text-shadow:
+        0 0 10px #22c55e;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="scanlines"></div>
+
+<nav>
+<div class="nav-container">
+<div class="logo">READBYTE</div>
+
+<div class="nav-links">
+<a href="home.html" class="active">Home</a>
+<a href="stories.html">Stories</a>
+<a href="archive-map.html">Archive Map</a>
+<a href="universe.html">Universe Map</a>
+</div>
+</div>
+</nav>
+
+<section class="hero">
+
+<div class="archive-tag">
+DIGITAL FICTION ARCHIVE || EST. 2026
+</div>
+
+<h1>READBYTE</h1>
+
+<p>
+More than a library.<br>
+ReadByte is a living archive where stories, universes, and ideas intertwine.<br>
+Explore the connections and discover what lies beyond the next page.
+</p>
+
+<div class="hero-actions">
+
+    <a href="stories.html" class="hero-btn">
+        Explore Stories
+    </a>
+
+    <a href="archive-map.html" class="hero-btn archive-btn">
+        Archive Map
+    </a>
+
+</div>
+
+<section class="uplink-header">
+
+    <div class="uplink-tag">
+        ARCHIVE UPLINK
+    </div>
+
+</section>
+
+<section class="status-grid">
+
+    <div class="status-card">
+        <span id="storyCount">0</span>
+        <p>Stories Archived</p>
+    </div>
+
+    <div class="status-card">
+        <span id="universeCount">0</span>
+        <p>Active Universes</p>
+    </div>
+
+    <div class="status-card">
+        <span id="categoryCount">0</span>
+        <p>Categories Indexed</p>
+    </div>
+
+    <div class="status-card">
+        <span class="online">ONLINE</span>
+        <p>Archive Status</p>
+    </div>
+
+    <div class="status-card">
+        <span id="signalIntegrity">97%</span>
+        <p>Signal Integrity</p>
+    </div>
+
+    <div class="status-card">
+        <span id="anomalies">47</span>
+        <p>Anomalies Recorded</p>
+    </div>
+
+</section>
+
+<footer>
+© 2026 ReadByte • Digital Archive of Original Stories
+</footer>
+
+<script>
+console.log("ReadByte Cyberpunk Theme Loaded");
+
+fetch("assets/data.json")
+.then(response => response.json())
+.then(data => {
+
+    // Stories
+
+    document.getElementById("storyCount").textContent =
+        data.length;
+
+    // Universes
+
+    const universes =
+        [...new Set(
+            data.map(book => book.universe)
+        )];
+
+    document.getElementById("universeCount").textContent =
+        universes.length;
+
+    // Categories
+
+    const categories =
+        [...new Set(
+            data.flatMap(book => book.categories)
+        )];
+
+    document.getElementById("categoryCount").textContent =
+        categories.length;
+
+    // Random signal
+
+    document.getElementById("signalIntegrity").textContent =
+        (95 + Math.random()*5).toFixed(1) + "%";
+
+    // Random anomalies
+
+    document.getElementById("anomalies").textContent =
+        Math.floor(
+            40 + Math.random()*60
+        );
+
+})
+.catch(error => {
+
+    console.error(error);
+
+});
+
+</script>
+
+</body>
+</html>

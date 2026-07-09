@@ -1,0 +1,128 @@
+[
+  {
+    "id": "B1",
+    "title": "The Last Train to Kalimpong",
+    "cover": "assets/covers/C1.png",
+    "universe": "The Meridian Archive",
+    "categories": ["Mystery", "Suspense", "Urban Legend"]
+  },
+  {
+    "id": "B2",
+    "title": "The Day Time Stopped at 11:37",
+    "cover": "assets/covers/C2.png",
+    "universe": "The Chronos Collection",
+    "categories": ["Science Fiction", "Time Anomaly", "Existential"]
+  },
+  {
+    "id": "B3",
+    "title": "The Light Beneath The Lake",
+    "cover": "assets/covers/C3.png",
+    "universe": "The Voidwake Cycle",
+    "categories": ["Cosmic Horror", "Mystery", "Supernatural"]
+  },
+  {
+    "id": "B4",
+    "title": "The Uninvited Passenger",
+    "cover": "assets/covers/C4.png",
+    "universe": "The Black Carriage Files",
+    "categories": ["Horror", "Suspense", "Psychological"]
+  },
+  {
+    "id": "B5",
+    "title": "The Lifetime Subscription",
+    "cover": "assets/covers/C5.png",
+    "universe": "The Mirrorworks Anthology",
+    "categories": ["Science Fiction", "Psychological", "Dystopian"]
+  },
+  {
+    "id": "B6",
+    "title": "The Echo Tax",
+    "cover": "assets/covers/C6.png",
+    "universe": "The Meridian Archive",
+    "categories": ["Fantasy", "Mystery", "Bureaucratic Absurdism"]
+  },
+  {
+    "id": "B7",
+    "title": "The Clockmaker's Inheritance",
+    "cover": "assets/covers/C7.png",
+    "universe": "The Chronos Collection",
+    "categories": ["Science Fantasy", "Time Anomaly", "Mystery"]
+  },
+  {
+    "id": "B8",
+    "title": "The 13th Floor",
+    "cover": "assets/covers/C8.png",
+    "universe": "The Voidwake Cycle",
+    "categories": ["Cosmic Horror", "Supernatural", "Psychological"]
+  },
+  {
+    "id": "B9",
+    "title": "The Static From 1958",
+    "cover": "assets/covers/C9.png",
+    "universe": "The Chronos Collection",
+    "categories": ["Science Fiction", "Mystery", "Alternate Reality"]
+  },
+  {
+    "id": "B10",
+    "title": "Sinking Upward",
+    "cover": "assets/covers/C10.png",
+    "universe": "The Mirrorworks Anthology",
+    "categories": ["Science Fiction", "Psychological", "Existential"]
+  },
+  {
+    "id": "B11",
+    "title": "Waiting For Tomorrow's Rain",
+    "cover": "assets/covers/C11.png",
+    "universe": "The Oddities Bureau",
+    "categories": ["Fantasy", "Magical Realism", "Mystery"]
+  },
+  {
+    "id": "B12",
+    "title": "Quantum Coffee & A Side of Regret",
+    "cover": "assets/covers/C12.png",
+    "universe": "The Oddities Bureau",
+    "categories": ["Weird Fiction", "Supernatural", "Memory"]
+  },
+  {
+    "id": "B13",
+    "title": "Fine Print of Forgetfulness",
+    "cover": "assets/covers/C13.png",
+    "universe": "The Oddities Bureau",
+    "categories": ["Supernatural", "Memory", "Bureaucratic Absurdism"]
+  },
+  {
+    "id": "B14",
+    "title": "CC'ing The Cosmos",
+    "cover": "assets/covers/C14.png",
+    "universe": "The Oddities Bureau",
+    "categories": ["Weird Fiction", "Cosmic Comedy", "Supernatural"]
+  },
+  {
+    "id": "B15",
+    "title": "Silhouette on Page 40",
+    "cover": "assets/covers/C15.png",
+    "universe": "The Oddities Bureau",
+    "categories": ["Meta Fiction", "Mystery", "Supernatural"]
+  },
+  {
+    "id": "B16",
+    "title": "Spill The Storm",
+    "cover": "assets/covers/C16.png",
+    "universe": "The Oddities Bureau",
+    "categories": ["Magical Realism", "Supernatural", "Drama"]
+  },
+  {
+    "id": "B17",
+    "title": "The Proxy",
+    "cover": "assets/covers/C17.png",
+    "universe": "The Mirrorworks Anthology",
+    "categories": ["Psychological", "Identity", "Science Fiction"]
+  },
+  {
+    "id": "B18",
+    "title": "Heavy is the Ounce",
+    "cover": "assets/covers/C18.png",
+    "universe": "The Oddities Bureau",
+    "categories": ["Weird Fiction", "Philosophical", "Supernatural"]
+  }
+]
