@@ -124,5 +124,19 @@
     "cover": "assets/covers/C18.png",
     "universe": "The Oddities Bureau",
     "categories": ["Weird Fiction", "Philosophical", "Supernatural"]
+  },
+  {
+    "id": "B19",
+    "title": "Apartment 404",
+    "cover": "assets/covers/C19.png",
+    "universe": "The Oddities Bureau",
+    "categories": ["Horror", "Psychological", "Supernatural"]
+  },
+  {
+    "id": "B20",
+    "title": "Offline",
+    "cover": "assets/covers/C20.png",
+    "universe": "The Oddities Bureau",
+    "categories": ["Science Fiction", "Dystopian", "Psychological"]
   }
 ]
