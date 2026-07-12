@@ -175,6 +175,7 @@ margin-bottom:8px;
 <div class="nav-links">
 <a href="home.html">Home</a>
 <a href="stories.html">Stories</a>
+<a href="poems.html">Poems</a>
 <a href="archive-map.html">Archive Map</a>
 <a href="universe.html">Universe Map</a>
 </div>
@@ -201,8 +202,10 @@ Select a node to inspect the network.
 <div class="legend">
 
 <div>⬢ DOMAIN</div>
-<div>⬣ UNIVERSE</div>
-<div>◉ STORY</div>
+<div>⬣ LIBRARY</div>
+<div>⬡ UNIVERSE</div>
+<div>🟣 STORY</div>
+<div>🔷 POEM</div>
 <div>◇ CATEGORY</div>
 </div>
 
@@ -216,8 +219,30 @@ const nodes = [];
 const links = [];
 
 nodes.push({
-    id: "READBYTE",
-    type: "domain"
+    id:"READBYTE",
+    type:"domain"
+});
+
+nodes.push({
+    id:"STORIES",
+    type:"library"
+});
+
+nodes.push({
+    id:"POEMS",
+    type:"library"
+});
+
+links.push({
+    source:"READBYTE",
+    target:"STORIES",
+    type:"library"
+});
+
+links.push({
+    source:"READBYTE",
+    target:"POEMS",
+    type:"library"
 });
 
 const universeSet = new Set();
@@ -225,9 +250,14 @@ const categorySet = new Set();
 
 data.forEach(story => {
 
+const nodeType =
+story.id.startsWith("P")
+? "poem"
+: "story";
+
 nodes.push({
 id: story.title,
-type: "story",
+type: nodeType,
 data: story
 });
 
@@ -239,8 +269,13 @@ nodes.push({
 });
 
 links.push({
-    source: "READBYTE",
+    source:
+        nodeType === "poem"
+        ? "POEMS"
+        : "STORIES",
+
     target: story.universe,
+
     type: "domain"
 });
 
@@ -335,9 +370,11 @@ if(node.type === "domain"){
     label = "READBYTE";
 }
 else if(node.type === "story"){
-    label = "B" + (nodes
-        .filter(n => n.type === "story")
-        .findIndex(n => n.id === node.id) + 1);
+    label = node.data.id;
+}
+
+else if(node.type === "poem"){
+    label = node.data.id;
 }
 
 const fontSize = 9/globalScale;
@@ -361,6 +398,23 @@ if(node.type === "domain"){
 
     ctx.shadowBlur = 25;
     ctx.shadowColor = "#00E5FF";
+}
+
+else if(node.type === "library"){
+
+    ctx.strokeStyle="#22D3EE";
+    ctx.lineWidth=3;
+
+    drawHexagon(
+        ctx,
+        node.x,
+        node.y,
+        14
+    );
+
+    ctx.shadowBlur=20;
+    ctx.shadowColor="#22D3EE";
+
 }
 
 else if(node.type === "universe"){
@@ -397,6 +451,27 @@ else if(node.type === "story"){
 
     ctx.shadowBlur = 15;
     ctx.shadowColor = "#8B5CF6";
+}
+
+else if(node.type==="poem"){
+
+    ctx.fillStyle="#22D3EE";
+
+    ctx.beginPath();
+
+    ctx.arc(
+        node.x,
+        node.y,
+        5,
+        0,
+        Math.PI*2
+    );
+
+    ctx.fill();
+
+    ctx.shadowBlur=15;
+    ctx.shadowColor="#22D3EE";
+
 }
 
 else if(node.type === "category"){
@@ -439,15 +514,15 @@ if(label){
 
 })
 
-.linkColor(link => {
+.linkColor(link=>{
 
-if(link.type==="domain")
-return "#00E5FF";
+    if(link.source.id==="READBYTE")
+        return "#00E5FF";
 
-if(link.type==="universe")
-return "#8B5CF6";
+    if(link.type==="universe")
+        return "#8B5CF6";
 
-return "#EC4899";
+    return "#EC4899";
 
 })
 
@@ -474,7 +549,7 @@ return 1;
 const panel =
 document.getElementById("infoPanel");
 
-if(node.type === "story"){
+if(node.type === "story" || node.type === "poem"){
 
 panel.innerHTML = `
 
@@ -489,6 +564,11 @@ margin-bottom:15px;
 <h3>${node.id}</h3>
 
 <p>
+
+Type:
+${node.type === "poem" ? "Poem" : "Story"}
+
+<br>
 
 ID:
 ${node.data.id}

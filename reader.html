@@ -265,14 +265,19 @@ Loading story...
 <script>
 
 const params = new URLSearchParams(window.location.search);
+
 const bookId = params.get("book");
+const poemId = params.get("poem");
+
+const itemId = bookId || poemId;
+const isPoem = poemId !== null;
 
 fetch("assets/data.json")
 .then(response => response.json())
 .then(data => {
 
     const book = data.find(
-        item => item.id === bookId
+        item => item.id === itemId
     );
 
     if(!book){
@@ -282,8 +287,9 @@ fetch("assets/data.json")
     document.getElementById("title").innerText =
         book.title;
 
+    const folder = isPoem ? "poems" : "books";
     return fetch(
-        `assets/books/${bookId}.md`
+        `assets/${folder}/${itemId}.md`
     );
 
 })
@@ -313,7 +319,7 @@ document
 .addEventListener("click",()=>{
 
     window.location.href =
-    "stories.html";
+        isPoem ? "poems.html" : "stories.html";
 
 });
 
@@ -378,7 +384,7 @@ document
 
         const currentIndex =
         data.findIndex(
-            story => story.id === bookId
+            story => story.id === itemId
         );
 
         if(currentIndex === -1) return;
@@ -390,7 +396,9 @@ document
         data[nextIndex];
 
         window.location.href =
-        `reader.html?book=${nextStory.id}`;
+        isPoem
+            ? `reader.html?poem=${nextStory.id}`
+            : `reader.html?book=${nextStory.id}`;
 
     });
 

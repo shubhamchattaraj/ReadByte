@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReadByte | Poems</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box
+}
+body{
+    font-family:Inter,sans-serif;
+    background:#050816;
+    color:#fff
+}
+nav{
+    position:sticky;
+    top:0;background:rgba(5,8,22,.8);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(139,92,246,.25)
+}
+.nav-container{
+    max-width:1200px;
+    margin:auto;
+    padding:20px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center
+}
+.logo{
+    font:800 1.8rem Orbitron,sans-serif;
+    color:#8b5cf6
+}
+.nav-links{
+    display:flex;
+    gap:30px
+}
+.nav-links a{
+    text-decoration:none;
+    color:#d1d5db
+}
+.nav-links a:hover{
+    color:#60a5fa
+}
+.hero{
+    text-align:center;
+    padding:80px 20px 40px
+}
+.hero h1{
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(3rem,7vw,5rem);
+    letter-spacing:5px;
+
+    background:linear-gradient(90deg,#8b5cf6,#60a5fa,#ec4899);
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+    -webkit-text-fill-color:transparent;
+}
+.hero p{
+    max-width:700px;
+    margin:20px auto;
+    color:#cbd5e1;
+    line-height:1.8
+}
+.controls{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin:20px
+}
+input,select{
+    padding:14px;
+    border-radius:12px;
+    border:1px solid #60a5fa;
+    background:#111827;
+    color:#fff
+}
+.grid{
+    max-width:1600px;
+    margin:40px auto;
+    padding:0 30px;
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:24px
+}
+.card{
+    background:#111827;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:16px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:.3s
+}
+.card:hover{
+    transform:translateY(-6px)
+}
+.card img{
+    width:100%;
+    aspect-ratio:9/16;
+    object-fit:cover
+}
+.title{
+    padding:16px;
+    text-align:center;
+    font-family:Orbitron,sans-serif
+}
+footer{
+    text-align:center;
+    padding:30px;
+    color:#94a3b8
+}
+</style>
+</head>
+<body>
+<nav><div class="nav-container">
+<div class="logo">READBYTE</div>
+<div class="nav-links">
+<a href="home.html">Home</a>
+<a href="stories.html">Stories</a>
+<a href="poems.html">Poems</a>
+<a href="archive-map.html">Archive Map</a>
+<a href="universe.html">Universe Map</a>
+</div></div></nav>
+
+<section class="hero">
+<h1>POETRY ARCHIVE</h1>
+<p>Words condensed into emotion. Explore verses about love, solitude, dreams, hope, memories, and the unknown.</p>
+</section>
+
+<div class="controls">
+<input id="search" placeholder="Search Poems...">
+<select id="sort">
+<option value="default">Archive Order</option>
+<option value="az">A → Z</option>
+<option value="za">Z → A</option>
+</select>
+</div>
+
+<div class="grid" id="grid">
+
+<div class="card" onclick="location.href='reader.html?poem=P1'">
+    <img src="assets/poem-covers/PC1.png" onerror="this.src='assets/poem-covers/PC1.png'">
+    <div class="title">THE PULSE OF EARTH</div>
+</div>
+
+<div class="card" onclick="location.href='reader.html?poem=P2'">
+    <img src="assets/poem-covers/PC2.png" onerror="this.src='assets/poem-covers/PC2.png'">
+    <div class="title">THE CLOCKWORK ORCHARD</div>
+</div>
+
+<div class="card" onclick="location.href='reader.html?poem=P3'">
+    <img src="assets/poem-covers/PC3.png" onerror="this.src='assets/poem-covers/PC3.png'">
+    <div class="title">INK STAINED VOYAGER</div>
+</div>
+
+<div class="card" onclick="location.href='reader.html?poem=P4'">
+    <img src="assets/poem-covers/PC4.png" onerror="this.src='assets/poem-covers/PC4.png'">
+    <div class="title">THE WEAVER'S WHISPER</div>
+</div>
+
+<div class="card" onclick="location.href='reader.html?poem=P5'">
+    <img src="assets/poem-covers/PC5.png" onerror="this.src='assets/poem-covers/PC5.png'">
+    <div class="title">ECHOES OF THE HEARTH</div>
+</div>
+
+<div class="card" onclick="location.href='reader.html?poem=P6'">
+    <img src="assets/poem-covers/PC6.png" onerror="this.src='assets/poem-covers/PC6.png'">
+    <div class="title">BENEATH THE GLASS</div>
+</div>
+
+<div class="card" onclick="location.href='reader.html?poem=P7'">
+    <img src="assets/poem-covers/PC7.png" onerror="this.src='assets/poem-covers/PC7.png'">
+    <div class="title">THE NAVIGATOR'S COMPASS</div>
+</div>
+
+<div class="card" onclick="location.href='reader.html?poem=P8'">
+    <img src="assets/poem-covers/PC8.png" onerror="this.src='assets/poem-covers/PC8.png'">
+    <div class="title">THE CIRCUITRY OF MYTH</div>
+</div>
+
+<div class="card" onclick="location.href='reader.html?poem=P9'">
+    <img src="assets/poem-covers/PC9.png" onerror="this.src='assets/poem-covers/PC9.png'">
+    <div class="title">ECHOES IN THE WALL</div>
+</div>
+
+<div class="card" onclick="location.href='reader.html?poem=P10'">
+    <img src="assets/poem-covers/PC10.png" onerror="this.src='assets/poem-covers/PC10.png'">
+    <div class="title">PULSE OF IRON ENGINE</div>
+</div>
+
+<div class="card" onclick="location.href='reader.html?poem=P11'">
+    <img src="assets/poem-covers/PC11.png" onerror="this.src='assets/poem-covers/PC11.png'">
+    <div class="title">FRACTURE POINT</div>
+</div>
+
+<div class="card" onclick="location.href='reader.html?poem=P12'">
+    <img src="assets/poem-covers/PC12.png" onerror="this.src='assets/poem-covers/PC12.png'">
+    <div class="title">APOTHEOSIS OF THE IRON KING</div>
+</div>
+
+</div>
+
+<footer>© 2026 ReadByte • Digital Archive of Original Poetry</footer>
+
+<script>
+const grid=document.getElementById('grid');
+const cards=[...grid.children];
+search.oninput=()=>cards.forEach(
+    c=>c.style.display=c.innerText.toLowerCase().includes(search.value.toLowerCase())?'':'none'
+);
+sort.onchange=()=>{
+ let arr=[...cards];
+ if(sort.value==='az')arr.sort((a,b)=>a.innerText.localeCompare(b.innerText));
+ if(sort.value==='za')arr.sort((a,b)=>b.innerText.localeCompare(a.innerText));
+ if(sort.value==='default')arr=cards;
+ arr.forEach(c=>grid.appendChild(c));
+};
+</script>
+</body></html>

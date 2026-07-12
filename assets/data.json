@@ -166,5 +166,91 @@
     "cover": "assets/covers/C24.png",
     "universe": "The Black Carriage Files",
     "categories": ["Horror", "Suspense", "Psychological"]
+  },
+
+  
+  {
+    "id": "P1",
+    "title": "The Pulse of Earth",
+    "cover": "assets/poem-covers/PC1.png",
+    "universe": "Nature Poetry",
+    "categories": ["Nature", "Reflection"]
+  },
+  {
+    "id": "P2",
+    "title": "The Clockwork Orchard",
+    "cover": "assets/poem-covers/PC2.png",
+    "universe": "Surrealist Poetry",
+    "categories": ["Industrial", "Melancholy"]
+  },
+  {
+    "id": "P3",
+    "title": "Ink Stained Voyager",
+    "cover": "assets/poem-covers/PC3.png",
+    "universe": "Travel Poetry",
+    "categories": ["Adventure", "Tranquility"]
+  },
+  {
+    "id": "P4",
+    "title": "The Weaver's Whisper",
+    "cover": "assets/poem-covers/PC4.png",
+    "universe": "Folklore Poetry",
+    "categories": ["Fantasy", "Nostalgia"]
+  },
+  {
+    "id": "P5",
+    "title": "Echoes of the Hearth",
+    "cover": "assets/poem-covers/PC5.png",
+    "universe": "Domestic Poetry",
+    "categories": ["Family", "Mystery"]
+  },
+  {
+    "id": "P6",
+    "title": "Beneath the Glass",
+    "cover": "assets/poem-covers/PC6.png",
+    "universe": "Modernist Poetry",
+    "categories": ["Urban", "Hope"]
+  },
+  {
+    "id": "P7",
+    "title": "The Navigator's Compass",
+    "cover": "assets/poem-covers/PC7.png",
+    "universe": "Maritime Poetry",
+    "categories": ["History", "Romance"]
+  },
+  {
+    "id": "P8",
+    "title": "The Circuitry of Myth",
+    "cover": "assets/poem-covers/PC8.png",
+    "universe": "Techno-Fantasy Poetry",
+    "categories": ["Mythology", "Reflection"]
+  },
+  {
+    "id": "P9",
+    "title": "Echoes in the Wall",
+    "cover": "assets/poem-covers/PC9.png",
+    "universe": "Architectural Poetry",
+    "categories": ["Tranquility", "Nostalgia"]
+  },
+  {
+    "id": "P10",
+    "title": "Pulse of Iron Engine",
+    "cover": "assets/poem-covers/PC10.png",
+    "universe": "Steam-Age Poetry",
+    "categories": ["Industrial", "Melancholy"]
+  },
+  {
+    "id": "P11",
+    "title": "Fracture Point",
+    "cover": "assets/poem-covers/PC11.png",
+    "universe": "Geological Poetry",
+    "categories": ["Nature", "Mystery"]
+  },
+  {
+    "id": "P12",
+    "title": "Apothoesis of Iron King",
+    "cover": "assets/poem-covers/PC12.png",
+    "universe": "Epic Poetry",
+    "categories": ["Royalty", "Reflection"]
   }
 ]
