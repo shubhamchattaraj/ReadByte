@@ -138,5 +138,33 @@
     "cover": "assets/covers/C20.png",
     "universe": "The Oddities Bureau",
     "categories": ["Science Fiction", "Dystopian", "Psychological"]
+  },
+  {
+    "id": "B21",
+    "title": "Compression",
+    "cover": "assets/covers/C21.png",
+    "universe": "The Meridian Archive",
+    "categories": ["Mystery", "Suspense", "Urban Legend"]
+  },
+  {
+    "id": "B22",
+    "title": "The Weight of Names",
+    "cover": "assets/covers/C22.png",
+    "universe": "The Chronos Collection",
+    "categories": ["Science Fiction", "Time Anomaly", "Existential"]
+  },
+  {
+    "id": "B23",
+    "title": "The Other Names",
+    "cover": "assets/covers/C23.png",
+    "universe": "The Voidwake Cycle",
+    "categories": ["Cosmic Horror", "Mystery", "Supernatural"]
+  },
+  {
+    "id": "B24",
+    "title": "Breathing",
+    "cover": "assets/covers/C24.png",
+    "universe": "The Black Carriage Files",
+    "categories": ["Horror", "Suspense", "Psychological"]
   }
 ]
