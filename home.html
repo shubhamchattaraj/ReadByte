@@ -455,6 +455,11 @@ DIGITAL FICTION ARCHIVE || EST. 2026
     </div>
 
     <div class="status-card">
+        <span id="wordCount">0</span>
+        <p>Words Archived</p>
+    </div>
+
+    <div class="status-card">
         <span id="universeCount">0</span>
         <p>Active Universes</p>
     </div>
@@ -462,6 +467,21 @@ DIGITAL FICTION ARCHIVE || EST. 2026
     <div class="status-card">
         <span id="categoryCount">0</span>
         <p>Categories Indexed</p>
+    </div>
+
+    <div class="status-card">
+        <span id="archiveAge">0</span>
+        <p>Archive Age</p>
+    </div>
+
+    <div class="status-card">
+        <span id="readingTime">0h</span>
+        <p>Reading Time</p>
+    </div>
+
+    <div class="status-card">
+        <span id="connectedNodes">0</span>
+        <p>Connected Nodes</p>
     </div>
 
     <div class="status-card">
@@ -474,11 +494,6 @@ DIGITAL FICTION ARCHIVE || EST. 2026
         <p>Signal Integrity</p>
     </div>
 
-    <div class="status-card">
-        <span id="anomalies">47</span>
-        <p>Anomalies Recorded</p>
-    </div>
-
 </section>
 
 <footer>
@@ -487,6 +502,33 @@ DIGITAL FICTION ARCHIVE || EST. 2026
 
 <script>
 console.log("ReadByte Cyberpunk Theme Loaded");
+
+// Archive Age
+const archiveStart = new Date("2026-04-15"); 
+const today = new Date();
+const days = Math.floor(
+    (today - archiveStart) / (1000 * 60 * 60 * 24)
+);
+
+document.getElementById("archiveAge").textContent =
+    days + " Days";
+
+fetch("assets/stats.json")
+.then(r=>r.json())
+.then(stats=>{
+
+    document.getElementById("wordCount").textContent =
+        stats.totalWords.toLocaleString();
+
+    const minutes = Math.ceil(stats.totalWords / 200);
+
+    const hours = Math.floor(minutes / 60);
+    const mins = minutes % 60;
+
+    document.getElementById("readingTime").textContent =
+        `${hours}h ${mins}m`;
+
+});
 
 fetch("assets/data.json")
 .then(response => response.json())
@@ -525,18 +567,20 @@ fetch("assets/data.json")
 
     document.getElementById("categoryCount").textContent =
         categories.length;
+    
+    const connectedNodes =
+        stories.length +
+        poems.length +
+        universes.length +
+        categories.length;
+
+    document.getElementById("connectedNodes").textContent =
+        connectedNodes;
 
     // Random signal
 
     document.getElementById("signalIntegrity").textContent =
         (95 + Math.random()*5).toFixed(1) + "%";
-
-    // Random anomalies
-
-    document.getElementById("anomalies").textContent =
-        Math.floor(
-            40 + Math.random()*60
-        );
 
 })
 .catch(error => {
