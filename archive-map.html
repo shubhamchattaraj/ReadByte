@@ -201,11 +201,11 @@ Select a node to inspect the network.
 
 <div class="legend">
 
-<div>⬢ DOMAIN</div>
-<div>⬣ LIBRARY</div>
-<div>⬡ UNIVERSE</div>
-<div>🟣 STORY</div>
-<div>🔷 POEM</div>
+<div>✦ DOMAIN</div>
+<div>⬢ LIBRARY</div>
+<div>⬡ STORY</div>
+<div>◈ POEM</div>
+<div>⬣ UNIVERSE</div>
 <div>◇ CATEGORY</div>
 </div>
 
@@ -245,68 +245,87 @@ links.push({
     type:"library"
 });
 
-const universeSet = new Set();
 const categorySet = new Set();
 
-data.forEach(story => {
+data.forEach(work=>{
 
-const nodeType =
-story.id.startsWith("P")
-? "poem"
-: "story";
+    const nodeType =
+        work.id.startsWith("P")
+            ? "poem"
+            : "story";
 
-nodes.push({
-id: story.title,
-type: nodeType,
-data: story
-});
+    nodes.push({
 
-if(!universeSet.has(story.universe)){
+        id: work.title,
 
-nodes.push({
-    id: story.universe,
-    type: "universe"
-});
+        type: nodeType,
 
-links.push({
-    source:
-        nodeType === "poem"
-        ? "POEMS"
-        : "STORIES",
+        data: work
 
-    target: story.universe,
+    });
 
-    type: "domain"
-});
+    links.push({
 
-universeSet.add(story.universe);
-}
+        source:
+            nodeType==="poem"
+                ? "POEMS"
+                : "STORIES",
 
-links.push({
-source: story.universe,
-target: story.title,
-type: "universe"
-});
+        target: work.title,
 
-story.categories.forEach(category => {
+        type:"library"
 
-if(!categorySet.has(category)){
+    });
 
-nodes.push({
-id: category,
-type: "category"
-});
+    const universeId =
+        work.title+"_UNIVERSE";
 
-categorySet.add(category);
-}
+    nodes.push({
 
-links.push({
-source: story.title,
-target: category,
-type: "category"
-});
+        id: universeId,
 
-});
+        name: work.universe,
+
+        type:"universe"
+
+    });
+
+    links.push({
+
+        source: work.title,
+
+        target: universeId,
+
+        type:"meta"
+
+    });
+
+    work.categories.forEach(category=>{
+
+        const id =
+            work.title+"_"+category;
+
+        nodes.push({
+
+            id,
+
+            name:category,
+
+            type:"category"
+
+        });
+
+        links.push({
+
+            source:work.title,
+
+            target:id,
+
+            type:"meta"
+
+        });
+
+    });
 
 });
 
@@ -350,6 +369,188 @@ nodes.find(
 centerNode.fx = 0;
 centerNode.fy = 0;
 
+const storiesNode =
+nodes.find(n => n.id === "STORIES");
+
+const storyCenterX = -700;
+const storyCenterY = 0;
+
+storiesNode.fx = storyCenterX;
+storiesNode.fy = storyCenterY;
+
+const poemsNode =
+nodes.find(n => n.id === "POEMS");
+
+const poemCenterX = 700;
+const poemCenterY = 0;
+
+poemsNode.fx = poemCenterX;
+poemsNode.fy = poemCenterY;
+
+const storyNodes =
+nodes.filter(n=>n.type==="story");
+
+const poemNodes =
+nodes.filter(n=>n.type==="poem");
+
+const ringSizes = [];
+
+let size = 5;
+
+while(size < storyNodes.length){
+
+    ringSizes.push(size);
+
+    size += 2;
+
+}
+
+const baseRadius = 120;
+const gap = 90;
+
+let current = 0;
+
+ringSizes.forEach((ringCount,ring)=>{
+
+    const radius =
+        baseRadius + ring*gap;
+
+    for(let i=0;i<ringCount;i++){
+
+        if(current>=storyNodes.length)
+            return;
+
+        const node =
+            storyNodes[current];
+
+        const angle =
+            (2*Math.PI*i)/ringCount +
+            (ring%2)*Math.PI/ringCount;
+
+        node.fx =
+            storyCenterX +
+            Math.cos(angle) * radius;
+
+        node.fy =
+            storyCenterY +
+            Math.sin(angle) * radius;
+
+        current++;
+
+    }
+
+});
+
+const poemRingSizes = [];
+
+let poemSize = 5;
+
+while (poemSize < poemNodes.length) {
+
+    poemRingSizes.push(poemSize);
+
+    poemSize += 2;
+
+}
+
+const poemBaseRadius = 120;
+const poemGap = 90;
+
+let currentPoem = 0;
+
+poemRingSizes.forEach((ringCount, ring) => {
+
+    const radius = poemBaseRadius + ring * poemGap;
+
+    for (let i = 0; i < ringCount; i++) {
+
+        if (currentPoem >= poemNodes.length)
+            return;
+
+        const node = poemNodes[currentPoem];
+
+        const angle =
+            (2 * Math.PI * i) / ringCount +
+            (ring % 2) * Math.PI / ringCount;
+
+        node.fx =
+            poemCenterX +
+            Math.cos(angle) * radius;
+
+        node.fy =
+            poemCenterY +
+            Math.sin(angle) * radius;
+
+        currentPoem++;
+
+    }
+
+});
+
+data.forEach(work=>{
+
+    const workNode=
+    nodes.find(n=>n.id===work.title);
+
+    const universe=
+    nodes.find(
+        n=>n.id===work.title+"_UNIVERSE"
+    );
+
+    universe.fx=workNode.fx;
+    universe.fy=workNode.fy+30;
+
+    work.categories.forEach((category,index)=>{
+
+        const node=
+        nodes.find(
+            n=>n.id===work.title+"_"+category
+        );
+
+        const angle=
+        (2*Math.PI*index)/work.categories.length;
+
+        node.fx=
+        workNode.fx+
+        Math.cos(angle)*45;
+
+        node.fy=
+        workNode.fy+
+        Math.sin(angle)*45;
+
+    });
+
+});
+
+data.forEach(work=>{
+
+    const storyNode =
+        nodes.find(n=>n.id===work.title);
+
+    const radius = 32;
+
+    work.categories.forEach((category,index)=>{
+
+        const categoryNode =
+            nodes.find(n=>n.id===category);
+
+        if(!categoryNode) return;
+
+        const angle =
+            (2*Math.PI*index)/work.categories.length;
+
+        categoryNode.fx =
+            storyNode.fx +
+            Math.cos(angle)*radius;
+
+        categoryNode.fy =
+            storyNode.fy +
+            Math.sin(angle)*radius;
+
+    });
+
+});
+
 const Graph = ForceGraph()
 (document.getElementById('graph'))
 
@@ -369,6 +570,15 @@ let label = "";
 if(node.type === "domain"){
     label = "READBYTE";
 }
+
+else if(node.type === "library"){
+    label = node.id;
+}
+
+else if(node.type === "universe"){
+    label = node.name;
+}
+
 else if(node.type === "story"){
     label = node.data.id;
 }
@@ -591,9 +801,14 @@ ${node.data.categories.join(", ")}
 
 else{
 
+const title =
+    node.type === "universe"
+        ? node.name
+        : node.id;
+
 panel.innerHTML = `
 
-<h3>${node.id}</h3>
+<h3>${title}</h3>
 
 <p>
 Type:

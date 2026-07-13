@@ -252,5 +252,173 @@
     "cover": "assets/poem-covers/PC12.png",
     "universe": "Epic Poetry",
     "categories": ["Royalty", "Reflection"]
+  },
+  {
+    "id": "P13",
+    "title": "Whispers of the Forest",
+    "cover": "assets/poem-covers/PC13.png",
+    "universe": "Nature",
+    "categories": ["Nature", "Mystery"]
+  },
+  {
+    "id": "P14",
+    "title": "Neon Arteries",
+    "cover": "assets/poem-covers/PC14.png",
+    "universe": "Cyberpunk",
+    "categories": ["City", "Sci-Fi"]
+  },
+  {
+    "id": "P15",
+    "title": "The Manor's Wail",
+    "cover": "assets/poem-covers/PC15.png",
+    "universe": "Gothic",
+    "categories": ["Horror", "Haunting"]
+  },
+  {
+    "id": "P16",
+    "title": "Beyond the End Horizon",
+    "cover": "assets/poem-covers/PC16.png",
+    "universe": "Science Fiction",
+    "categories": ["Space", "Exploration"]
+  },
+  {
+    "id": "P17",
+    "title": "Rain on the Pavement",
+    "cover": "assets/poem-covers/PC17.png",
+    "universe": "Urban",
+    "categories": ["Rain", "Reflection"]
+  },
+  {
+    "id": "P18",
+    "title": "The Dragon's Breath",
+    "cover": "assets/poem-covers/PC18.png",
+    "universe": "Fantasy",
+    "categories": ["Dragons", "Adventure"]
+  },
+  {
+    "id": "P19",
+    "title": "Sundown at the Saloon",
+    "cover": "assets/poem-covers/PC19.png",
+    "universe": "Western",
+    "categories": ["Cowboys", "Sunset"]
+  },
+  {
+    "id": "P20",
+    "title": "The Sailor's Lament",
+    "cover": "assets/poem-covers/PC20.png",
+    "universe": "Maritime",
+    "categories": ["Ocean", "Longing"]
+  },
+  {
+    "id": "P21",
+    "title": "Heartstrings",
+    "cover": "assets/poem-covers/PC21.png",
+    "universe": "Romance",
+    "categories": ["Love", "Emotion"]
+  },
+  {
+    "id": "P22",
+    "title": "The Clockwork Fish",
+    "cover": "assets/poem-covers/PC22.png",
+    "universe": "Steampunk",
+    "categories": ["Clockwork", "Fantasy"]
+  },
+  {
+    "id": "P23",
+    "title": "Echoes of the Agora",
+    "cover": "assets/poem-covers/PC23.png",
+    "universe": "Historical",
+    "categories": ["Philosophy", "Ancient Greece"]
+  },
+  {
+    "id": "P24",
+    "title": "The Unseen Guest",
+    "cover": "assets/poem-covers/PC24.png",
+    "universe": "Mystery",
+    "categories": ["Supernatural", "Suspense"]
+  },
+  {
+    "id": "P25",
+    "title": "Echoes of the Void",
+    "cover": "assets/poem-covers/PC25.png",
+    "universe": "Cosmic",
+    "categories": ["Space", "Existential"]
+  },
+  {
+    "id": "P26",
+    "title": "Whispers of the Clock",
+    "cover": "assets/poem-covers/PC26.png",
+    "universe": "Steampunk",
+    "categories": ["Time", "Mystery"]
+  },
+  {
+    "id": "P27",
+    "title": "The Glass Desert",
+    "cover": "assets/poem-covers/PC27.png",
+    "universe": "Post-Apocalyptic",
+    "categories": ["Desert", "Survival"]
+  },
+  {
+    "id": "P28",
+    "title": "Neon Rain Rhapsody",
+    "cover": "assets/poem-covers/PC28.png",
+    "universe": "Cyberpunk",
+    "categories": ["Rain", "City"]
+  },
+  {
+    "id": "P29",
+    "title": "Stellar Drift",
+    "cover": "assets/poem-covers/PC29.png",
+    "universe": "Science Fiction",
+    "categories": ["Space", "Journey"]
+  },
+  {
+    "id": "P30",
+    "title": "The Forgotten Archive",
+    "cover": "assets/poem-covers/PC30.png",
+    "universe": "Fantasy",
+    "categories": ["Knowledge", "Ancient"]
+  },
+  {
+    "id": "P31",
+    "title": "Midnight Carousel",
+    "cover": "assets/poem-covers/PC31.png",
+    "universe": "Dark Fantasy",
+    "categories": ["Dreams", "Mystery"]
+  },
+  {
+    "id": "P32",
+    "title": "Iron Tide",
+    "cover": "assets/poem-covers/PC32.png",
+    "universe": "Epic Poetry",
+    "categories": ["War", "Sea"]
+  },
+  {
+    "id": "P33",
+    "title": "Velvet Shadows",
+    "cover": "assets/poem-covers/PC33.png",
+    "universe": "Noir",
+    "categories": ["Night", "Mystery"]
+  },
+  {
+    "id": "P34",
+    "title": "Golden Harvest",
+    "cover": "assets/poem-covers/PC34.png",
+    "universe": "Nature",
+    "categories": ["Autumn", "Abundance"]
+  },
+  {
+    "id": "P35",
+    "title": "Fragmented Reflections",
+    "cover": "assets/poem-covers/PC35.png",
+    "universe": "Psychological",
+    "categories": ["Identity", "Reflection"]
+  },
+  {
+    "id": "P36",
+    "title": "Winter's Final Breath",
+    "cover": "assets/poem-covers/PC36.png",
+    "universe": "Nature",
+    "categories": ["Winter", "Hope"]
   }
 ]
