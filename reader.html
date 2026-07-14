@@ -268,49 +268,117 @@ const params = new URLSearchParams(window.location.search);
 
 const bookId = params.get("book");
 const poemId = params.get("poem");
+const seriesId = params.get("series");
+const partId = params.get("part");
 
-const itemId = bookId || poemId;
+const itemId = bookId || poemId || partId;
+
 const isPoem = poemId !== null;
+const isSeries = seriesId !== null;
 
-fetch("assets/data.json")
-.then(response => response.json())
-.then(data => {
+document.querySelector(".archive").innerText=
 
-    const book = data.find(
-        item => item.id === itemId
-    );
+isSeries
+? "READBYTE SERIES"
 
-    if(!book){
-        throw new Error("Book not found");
-    }
+: isPoem
+? "READBYTE POETRY"
 
-    document.getElementById("title").innerText =
-        book.title;
+: "READBYTE DIGITAL ARCHIVE";
 
-    const folder = isPoem ? "poems" : "books";
-    return fetch(
-        `assets/${folder}/${itemId}.md`
-    );
+if(isSeries){
 
-})
-.then(response => response.text())
-.then(text => {
+    fetch("assets/series.json")
 
-    document.getElementById("content").innerText =
-        text;
+    .then(response=>response.json())
 
-})
-.catch(error => {
+    .then(series=>{
 
-    console.error(error);
+        const currentSeries=
+        series.find(s=>s.id===seriesId);
 
-    document.getElementById("title").innerText =
-        "Error";
+        if(!currentSeries)
+            throw new Error("Series not found");
 
-    document.getElementById("content").innerText =
+        const currentPart=
+        currentSeries.parts.find(
+            p=>p.id===partId
+        );
+
+        if(!currentPart)
+            throw new Error("Part not found");
+
+        document.getElementById("title").innerText=
+        currentPart.title;
+
+        return fetch(
+            `assets/series/${seriesId}/${partId}.md`
+        );
+
+    })
+
+    .then(r=>r.text())
+
+    .then(text=>{
+
+        document.getElementById("content").innerText=text;
+
+    })
+
+    .catch(error=>{
+
+        document.getElementById("title").innerText="Error";
+
+        document.getElementById("content").innerText=
         error.message;
 
-});
+    });
+
+}
+
+else{
+
+    fetch("assets/data.json")
+
+    .then(response=>response.json())
+
+    .then(data=>{
+
+        const book=
+        data.find(item=>item.id===itemId);
+
+        if(!book)
+            throw new Error("Book not found");
+
+        document.getElementById("title").innerText=
+        book.title;
+
+        const folder=isPoem ? "poems" : "books";
+
+        return fetch(
+            `assets/${folder}/${itemId}.md`
+        );
+
+    })
+
+    .then(r=>r.text())
+
+    .then(text=>{
+
+        document.getElementById("content").innerText=text;
+
+    })
+
+    .catch(error=>{
+
+        document.getElementById("title").innerText="Error";
+
+        document.getElementById("content").innerText=
+        error.message;
+
+    });
+
+}
 
 let currentFontSize = 1.15;
 
@@ -318,9 +386,17 @@ document
 .getElementById("homeBtn")
 .addEventListener("click",()=>{
 
-    window.location.href =
-        isPoem ? "poems.html" : "stories.html";
+    if(isSeries){
+        window.location.href=
+        `series.html?series=${seriesId}`;
+    }
 
+    else{
+        window.location.href=
+        isPoem
+        ? "poems.html"
+        : "stories.html";
+    }
 });
 
 document
@@ -376,31 +452,73 @@ document
 
 document
 .getElementById("nextBtn")
-.addEventListener("click", () => {
+.addEventListener("click",()=>{
 
-    fetch("assets/data.json")
-    .then(response => response.json())
-    .then(data => {
+    if(isSeries){
 
-        const currentIndex =
-        data.findIndex(
-            story => story.id === itemId
-        );
+        fetch("assets/series.json")
 
-        if(currentIndex === -1) return;
+        .then(r=>r.json())
 
-        const nextIndex =
-        (currentIndex + 1) % data.length;
+        .then(series=>{
 
-        const nextStory =
-        data[nextIndex];
+            const currentSeries=
+            series.find(s=>s.id===seriesId);
 
-        window.location.href =
-        isPoem
-            ? `reader.html?poem=${nextStory.id}`
-            : `reader.html?book=${nextStory.id}`;
+            const index=
+            currentSeries.parts.findIndex(
+                p=>p.id===partId
+            );
 
-    });
+            if(index==-1) return;
+
+            if(index==currentSeries.parts.length-1){
+
+                window.location.href=
+                `series.html?series=${seriesId}`;
+
+                return;
+
+            }
+
+            const next=
+            currentSeries.parts[index+1];
+
+            window.location.href=
+
+            `reader.html?series=${seriesId}&part=${next.id}`;
+
+        });
+
+    }
+
+    else{
+
+        fetch("assets/data.json")
+
+        .then(r=>r.json())
+
+        .then(data=>{
+
+            const current=
+            data.findIndex(
+                s=>s.id===itemId
+            );
+
+            const next=
+            data[(current+1)%data.length];
+
+            window.location.href=
+
+            isPoem
+
+            ? `reader.html?poem=${next.id}`
+
+            : `reader.html?book=${next.id}`;
+
+        });
+
+    }
 
 });
 

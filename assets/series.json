@@ -1,0 +1,36 @@
+[
+    {
+        "id": "S1",
+        "title": "The Inherited Apartment",
+        "cover": "assets/series-covers/SC1.png",
+        "description": "Five interconnected chapters following an inherited apartment that quietly changes every life it touches.",
+        "genres": ["Drama", "Mystery", "Coming of Age"],
+        "parts": [
+            {
+                "id": "S1P1",
+                "title": "Dust and Postcards",
+                "cover": "assets/series-part-covers/S1/S1P1.png"
+            },
+            {
+                "id": "S1P2",
+                "title": "Chords and Keys",
+                "cover": "assets/series-part-covers/S1/S1P2.png"
+            },
+            {
+                "id": "S1P3",
+                "title": "Pixels and Promises",
+                "cover": "assets/series-part-covers/S1/S1P3.png"
+            },
+            {
+                "id": "S1P4",
+                "title": "The Viral Room",
+                "cover": "assets/series-part-covers/S1/S1P4.png"
+            },
+            {
+                "id": "S1P5",
+                "title": "The Quiet Return",
+                "cover": "assets/series-part-covers/S1/S1P5.png"
+            }
+        ]
+    }
+]

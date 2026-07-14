@@ -3,6 +3,7 @@ const path = require("path");
 
 const booksDir = path.join(__dirname, "../assets/books");
 const poemsDir = path.join(__dirname, "../assets/poems");
+const seriesDir = path.join(__dirname, "../assets/series");
 
 function countWords(folder){
 
@@ -33,15 +34,53 @@ function countWords(folder){
 
 }
 
+function countSeriesWords(folder){
+
+    let total = 0;
+
+    const entries = fs.readdirSync(folder, {
+        withFileTypes: true
+    });
+
+    entries.forEach(entry => {
+
+        const fullPath = path.join(folder, entry.name);
+
+        if(entry.isDirectory()){
+
+            total += countSeriesWords(fullPath);
+
+        }
+
+        else if(entry.name.endsWith(".md")){
+
+            const text = fs.readFileSync(fullPath,"utf8");
+
+            const words = text
+                .replace(/[#>*`_\-\[\]\(\)]/g," ")
+                .trim()
+                .split(/\s+/)
+                .length;
+
+            total += words;
+
+        }
+
+    });
+
+    return total;
+
+}
+
 const storyWords = countWords(booksDir);
 const poemWords = countWords(poemsDir);
+const seriesWords = countSeriesWords(seriesDir);
 
 const stats = {
-
-    totalWords: storyWords + poemWords,
+    totalWords: storyWords + poemWords + seriesWords,
     storyWords,
-    poemWords
-
+    poemWords,
+    seriesWords
 };
 
 fs.writeFileSync(

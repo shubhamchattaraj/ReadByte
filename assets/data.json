@@ -420,5 +420,173 @@
     "cover": "assets/poem-covers/PC36.png",
     "universe": "Nature",
     "categories": ["Winter", "Hope"]
+  },
+  {
+    "id": "P37",
+    "title": "The Beacon's Vigil",
+    "cover": "assets/poem-covers/PC37.png",
+    "universe": "Maritime",
+    "categories": ["Hope", "Sea"]
+  },
+  {
+    "id": "P38",
+    "title": "Song of Brass and Wire",
+    "cover": "assets/poem-covers/PC38.png",
+    "universe": "Steampunk",
+    "categories": ["Music", "Machinery"]
+  },
+  {
+    "id": "P39",
+    "title": "Roots of the Ancient Forest",
+    "cover": "assets/poem-covers/PC39.png",
+    "universe": "Nature",
+    "categories": ["Forest", "Mythology"]
+  },
+  {
+    "id": "P40",
+    "title": "Heat Waves on the Horizon",
+    "cover": "assets/poem-covers/PC40.png",
+    "universe": "Nature",
+    "categories": ["Desert", "Summer"]
+  },
+  {
+    "id": "P41",
+    "title": "The Flow of the Silver Pen",
+    "cover": "assets/poem-covers/PC41.png",
+    "universe": "Literary",
+    "categories": ["Writing", "Creativity"]
+  },
+  {
+    "id": "P42",
+    "title": "Ivory and Ebony Echoes",
+    "cover": "assets/poem-covers/PC42.png",
+    "universe": "Music",
+    "categories": ["Piano", "Harmony"]
+  },
+  {
+    "id": "P43",
+    "title": "Rose Maze",
+    "cover": "assets/poem-covers/PC43.png",
+    "universe": "Fantasy",
+    "categories": ["Love", "Garden"]
+  },
+  {
+    "id": "P44",
+    "title": "The Titan's Ascent",
+    "cover": "assets/poem-covers/PC44.png",
+    "universe": "Epic Poetry",
+    "categories": ["Strength", "Mythology"]
+  },
+  {
+    "id": "P45",
+    "title": "The Weaver's Dark Tapestry",
+    "cover": "assets/poem-covers/PC45.png",
+    "universe": "Dark Fantasy",
+    "categories": ["Fate", "Mystery"]
+  },
+  {
+    "id": "P46",
+    "title": "Portals in the Silver Glass",
+    "cover": "assets/poem-covers/PC46.png",
+    "universe": "Fantasy",
+    "categories": ["Magic", "Dimensions"]
+  },
+  {
+    "id": "P47",
+    "title": "The Silent Library",
+    "cover": "assets/poem-covers/PC47.png",
+    "universe": "Literary",
+    "categories": ["Books", "Knowledge"]
+  },
+  {
+    "id": "P48",
+    "title": "Valley's Cradle",
+    "cover": "assets/poem-covers/PC48.png",
+    "universe": "Nature",
+    "categories": ["Mountains", "Peace"]
+  },
+  {
+    "id": "P49",
+    "title": "Glass Weaver",
+    "cover": "assets/poem-covers/PC49.png",
+    "universe": "Fantasy",
+    "categories": ["Craftsmanship", "Beauty"]
+  },
+  {
+    "id": "P50",
+    "title": "Midnight Telegraph",
+    "cover": "assets/poem-covers/PC50.png",
+    "universe": "Historical",
+    "categories": ["Communication", "Night"]
+  },
+  {
+    "id": "P51",
+    "title": "Nomad's Compass",
+    "cover": "assets/poem-covers/PC51.png",
+    "universe": "Adventure",
+    "categories": ["Journey", "Exploration"]
+  },
+  {
+    "id": "P52",
+    "title": "Scribe of Echoes",
+    "cover": "assets/poem-covers/PC52.png",
+    "universe": "Literary",
+    "categories": ["Memory", "Writing"]
+  },
+  {
+    "id": "P53",
+    "title": "Orchard of Time",
+    "cover": "assets/poem-covers/PC53.png",
+    "universe": "Fantasy",
+    "categories": ["Time", "Nature"]
+  },
+  {
+    "id": "P54",
+    "title": "Mariner's Watch",
+    "cover": "assets/poem-covers/PC54.png",
+    "universe": "Maritime",
+    "categories": ["Ocean", "Voyage"]
+  },
+  {
+    "id": "P55",
+    "title": "Architect of Dreams",
+    "cover": "assets/poem-covers/PC55.png",
+    "universe": "Surreal",
+    "categories": ["Dreams", "Imagination"]
+  },
+  {
+    "id": "P56",
+    "title": "Clockmaker's Daughter",
+    "cover": "assets/poem-covers/PC56.png",
+    "universe": "Steampunk",
+    "categories": ["Time", "Legacy"]
+  },
+  {
+    "id": "P57",
+    "title": "Alchemist's Garden",
+    "cover": "assets/poem-covers/PC57.png",
+    "universe": "Fantasy",
+    "categories": ["Alchemy", "Nature"]
+  },
+  {
+    "id": "P58",
+    "title": "Librarian of Shadows",
+    "cover": "assets/poem-covers/PC58.png",
+    "universe": "Dark Fantasy",
+    "categories": ["Books", "Secrets"]
+  },
+  {
+    "id": "P59",
+    "title": "Keeper of the Well",
+    "cover": "assets/poem-covers/PC59.png",
+    "universe": "Folklore",
+    "categories": ["Guardian", "Wisdom"]
+  },
+  {
+    "id": "P60",
+    "title": "Weaver of the Wind",
+    "cover": "assets/poem-covers/PC60.png",
+    "universe": "Nature",
+    "categories": ["Wind", "Freedom"]
   }
 ]
