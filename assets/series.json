@@ -32,5 +32,29 @@
                 "cover": "assets/series-part-covers/S1/S1P5.png"
             }
         ]
+    },
+    {
+        "id": "S2",
+        "title": "The Last Ocean",
+        "cover": "assets/series-covers/SC2.png",
+        "description": "A trilogy following a mysterious ocean, forgotten kingdoms beneath the waves, and the final secret hidden in the world's last great sea.",
+        "genres": ["Fantasy", "Adventure", "Mystery"],
+        "parts": [
+            {
+                "id": "S2P1",
+                "title": "The Drowned Compass",
+                "cover": "assets/series-part-covers/S2/S2P1.png"
+            },
+            {
+                "id": "S2P2",
+                "title": "Throne of the Tides",
+                "cover": "assets/series-part-covers/S2/S2P2.png"
+            },
+            {
+                "id": "S2P3",
+                "title": "The Ocean's Last Secret",
+                "cover": "assets/series-part-covers/S2/S2P3.png"
+            }
+        ]
     }
 ]

@@ -192,6 +192,25 @@ box-shadow:
 }
 
 .archive-btn{
+    border:1px solid rgba(255,215,0,.65);
+    background:rgba(255,215,0,.10);
+    box-shadow:
+        0 0 15px rgba(255,215,0,.35),
+        0 0 45px rgba(255,193,7,.18);
+}
+
+.archive-btn:hover{
+    box-shadow:
+        0 0 30px rgba(255,215,0,.8),
+        0 0 70px rgba(255,193,7,.45);
+}
+
+.archive-row{
+    width: fit-content;
+    margin: 20px auto 0;
+}
+
+.series-btn{
     border:1px solid rgba(236,72,153,.6);
     background:rgba(236,72,153,.12);
     box-shadow:
@@ -199,7 +218,7 @@ box-shadow:
         0 0 40px rgba(236,72,153,.15);
 }
 
-.archive-btn:hover{
+.series-btn:hover{
     box-shadow:
         0 0 25px rgba(236,72,153,.7),
         0 0 60px rgba(236,72,153,.35);
@@ -429,6 +448,14 @@ DIGITAL FICTION ARCHIVE || EST. 2026
         Explore Poems
     </a>
 
+    <a href="series.html" class="hero-btn series-btn">
+        Explore Series
+    </a>
+
+</div>
+
+<div class="hero-actions archive-row">
+
     <a href="archive-map.html" class="hero-btn archive-btn">
         Archive Map
     </a>
@@ -456,8 +483,8 @@ DIGITAL FICTION ARCHIVE || EST. 2026
     </div>
 
     <div class="status-card">
-        <span id="wordCount">0</span>
-        <p>Words Archived</p>
+        <span id="seriesCount">0</span>
+        <p>Series Archived</p>
     </div>
 
     <div class="status-card">
@@ -476,6 +503,11 @@ DIGITAL FICTION ARCHIVE || EST. 2026
     </div>
 
     <div class="status-card">
+        <span id="wordCount">0</span>
+        <p>Words Archived</p>
+    </div>
+
+    <div class="status-card">
         <span id="readingTime">0h</span>
         <p>Reading Time</p>
     </div>
@@ -488,11 +520,6 @@ DIGITAL FICTION ARCHIVE || EST. 2026
     <div class="status-card">
         <span class="online">ONLINE</span>
         <p>Archive Status</p>
-    </div>
-
-    <div class="status-card">
-        <span id="signalIntegrity">97%</span>
-        <p>Signal Integrity</p>
     </div>
 
 </section>
@@ -561,34 +588,41 @@ fetch("assets/data.json")
 
     // Categories
 
-    const categories =
+    let categories =
         [...new Set(
             data.flatMap(book => book.categories)
-        )];
-
-    document.getElementById("categoryCount").textContent =
-        categories.length;
+        )];;
     
-    const connectedNodes =
-        stories.length +
-        poems.length +
-        universes.length +
-        categories.length;
+    fetch("assets/series.json")
+    .then(response => response.json())
+    .then(series => {
 
-    document.getElementById("connectedNodes").textContent =
-        connectedNodes;
+        document.getElementById("seriesCount").textContent =
+            series.length;
 
-    // Random signal
+        categories = [
+            ...categories,
+            ...series.flatMap(book => book.genres)
+        ];
 
-    document.getElementById("signalIntegrity").textContent =
-        (95 + Math.random()*5).toFixed(1) + "%";
+        categories = [...new Set(categories)];
+
+        document.getElementById("categoryCount").textContent =
+            categories.length;
+
+        const connectedNodes =
+            stories.length +
+            poems.length +
+            series.length +
+            universes.length +
+            categories.length;
+
+        document.getElementById("connectedNodes").textContent =
+            connectedNodes;
+    });
 
 })
-.catch(error => {
-
-    console.error(error);
-
-});
+.catch(error => {console.error(error);});
 
 </script>
 

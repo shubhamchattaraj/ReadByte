@@ -212,9 +212,10 @@ Select a node to inspect the network.
 
 <script>
 
-fetch("assets/data.json")
-.then(res => res.json())
-.then(data => {
+Promise.all([
+    fetch("assets/data.json").then(r => r.json()),
+    fetch("assets/series.json").then(r => r.json())
+]).then(([data, seriesData]) => {
 
 const nodes = [];
 const links = [];
@@ -234,6 +235,11 @@ nodes.push({
     type:"library"
 });
 
+nodes.push({
+    id:"SERIES",
+    type:"library"
+});
+
 links.push({
     source:"READBYTE",
     target:"STORIES",
@@ -243,6 +249,12 @@ links.push({
 links.push({
     source:"READBYTE",
     target:"POEMS",
+    type:"library"
+});
+
+links.push({
+    source:"READBYTE",
+    target:"SERIES",
     type:"library"
 });
 
@@ -373,7 +385,7 @@ centerNode.fy = 0;
 const storiesNode =
 nodes.find(n => n.id === "STORIES");
 
-const storyCenterX = -700;
+const storyCenterX = -1000;
 const storyCenterY = 0;
 
 storiesNode.fx = storyCenterX;
@@ -382,11 +394,17 @@ storiesNode.fy = storyCenterY;
 const poemsNode =
 nodes.find(n => n.id === "POEMS");
 
-const poemCenterX = 700;
+const poemCenterX = 1000;
 const poemCenterY = 0;
 
 poemsNode.fx = poemCenterX;
 poemsNode.fy = poemCenterY;
+
+const seriesNode =
+nodes.find(n => n.id === "SERIES");
+
+seriesNode.fx = 0;
+seriesNode.fy = 700;
 
 const storyNodes =
 nodes.filter(n=>n.type==="story");
@@ -488,6 +506,94 @@ poemRingSizes.forEach((ringCount, ring) => {
 
 });
 
+seriesData.forEach(series => {
+
+    nodes.push({
+        id: series.title,
+        type: "series",
+        data: series
+    });
+
+    links.push({
+        source: "SERIES",
+        target: series.title,
+        type: "library"
+    });
+
+    series.parts.forEach(part => {
+
+        const partId = series.id + "_" + part.id;
+
+        nodes.push({
+            id: partId,
+            name: part.title,
+            type: "part",
+            data: part
+        });
+
+        links.push({
+            source: series.title,
+            target: partId,
+            type: "part"
+        });
+
+    });
+
+});
+
+const seriesNodes = nodes.filter(n => n.type === "series");
+
+const seriesCenterX = 0;
+const seriesCenterY = 700;
+
+if(seriesNodes.length === 1){
+
+    seriesNodes[0].fx = seriesCenterX;
+    seriesNodes[0].fy = seriesCenterY + 140;
+
+}
+else{
+
+    const radius = 140;
+
+    seriesNodes.forEach((node,index)=>{
+
+        const angle = (2*Math.PI*index)/seriesNodes.length;
+
+        node.fx = seriesCenterX + Math.cos(angle)*radius;
+        node.fy = seriesCenterY + Math.sin(angle)*radius;
+
+    });
+
+}
+
+seriesData.forEach(series => {
+
+    const seriesNode =
+        nodes.find(n => n.id === series.title);
+
+    const radius = 55;
+
+    series.parts.forEach((part,index)=>{
+
+        const node =
+            nodes.find(n => n.id === series.id + "_" + part.id);
+
+        const angle =
+            (2*Math.PI*index)/series.parts.length;
+
+        node.fx =
+            seriesNode.fx +
+            Math.cos(angle)*radius;
+
+        node.fy =
+            seriesNode.fy +
+            Math.sin(angle)*radius;
+
+    });
+
+});
+
 data.forEach(work=>{
 
     const workNode=
@@ -560,6 +666,9 @@ nodes,
 links
 })
 
+.d3AlphaDecay(1)
+.cooldownTicks(0)
+
 .backgroundColor('rgba(0,0,0,0)')
 
 .nodeLabel(() => "")
@@ -585,6 +694,14 @@ else if(node.type === "story"){
 }
 
 else if(node.type === "poem"){
+    label = node.data.id;
+}
+
+else if(node.type === "series"){
+    label = node.data.id;
+}
+
+else if(node.type==="part"){
     label = node.data.id;
 }
 
@@ -685,6 +802,47 @@ else if(node.type==="poem"){
 
 }
 
+else if(node.type==="series"){
+
+    ctx.fillStyle="#EC4899";
+
+    ctx.beginPath();
+
+    ctx.arc(
+        node.x,
+        node.y,
+        5,
+        0,
+        Math.PI*2
+    );
+
+    ctx.fill();
+
+    ctx.shadowBlur=15;
+    ctx.shadowColor="#EC4899";
+}
+
+else if(node.type==="part"){
+
+    ctx.fillStyle="#F472B6";
+
+    ctx.beginPath();
+
+    ctx.arc(
+        node.x,
+        node.y,
+        3,
+        0,
+        Math.PI*2
+    );
+
+    ctx.fill();
+
+    ctx.shadowBlur=10;
+    ctx.shadowColor="#F472B6";
+
+}
+
 else if(node.type === "category"){
 
     ctx.strokeStyle = "#EC4899";
@@ -760,7 +918,45 @@ return 1;
 const panel =
 document.getElementById("infoPanel");
 
-if(node.type === "story" || node.type === "poem"){
+if(node.type === "story" || node.type === "poem" || node.type === "series" || node.type === "part"){
+
+let details = "";
+
+if(node.type === "series"){
+
+    details = `
+    Type: Series
+    <br>
+    ID: ${node.data.id}
+    <br>
+    Genres: ${node.data.genres.join(", ")}
+    `;
+
+}
+else if(node.type === "part"){
+
+    details = `
+    Type: Series Part
+    <br>
+    ID: ${node.data.id}
+    <br>
+    Title: ${node.data.title}
+    `;
+
+}
+else{
+
+    details = `
+    Type: ${node.type === "poem" ? "Poem" : "Story"}
+    <br>
+    ID: ${node.data.id}
+    <br>
+    Universe: ${node.data.universe}
+    <br>
+    Categories: ${node.data.categories.join(", ")}
+    `;
+
+}
 
 panel.innerHTML = `
 
@@ -775,25 +971,7 @@ margin-bottom:15px;
 <h3>${node.id}</h3>
 
 <p>
-
-Type:
-${node.type === "poem" ? "Poem" : "Story"}
-
-<br>
-
-ID:
-${node.data.id}
-
-<br>
-
-Universe:
-${node.data.universe}
-
-<br>
-
-Categories:
-${node.data.categories.join(", ")}
-
+${details}
 </p>
 
 `;
