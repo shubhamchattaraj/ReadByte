@@ -56,5 +56,58 @@
                 "cover": "assets/series-part-covers/S2/S2P3.png"
             }
         ]
+    },
+    {
+        "id": "S3",
+        "title": "The Forgotten Atlas",
+        "cover": "assets/series-covers/SC3.png",
+        "description": "A trilogy of forgotten maps, hidden cities, and an ancient compass capable of rewriting the world's lost history.",
+        "genres": ["Fantasy", "Adventure", "Mystery"],
+        "parts": [
+            {
+                "id": "S3P1",
+                "title": "Map That Was Never Drawn",
+                "cover": "assets/series-part-covers/S3/S3P1.png"
+            },
+            {
+                "id": "S3P2",
+                "title": "City Beneath the Fog",
+                "cover": "assets/series-part-covers/S3/S3P2.png"
+            },
+            {
+                "id": "S3P3",
+                "title": "Compass of Ash",
+                "cover": "assets/series-part-covers/S3/S3P3.png"
+            }
+        ]
+    },
+    {
+        "id": "S4",
+        "title": "The Four Pillars",
+        "cover": "assets/series-covers/SC4.png",
+        "description": "Four legendary pillars hold the balance of the world. As each begins to fall, an ancient prophecy awakens, forcing unlikely heroes to restore what time has nearly erased.",
+        "genres": ["Epic Fantasy", "Adventure", "Mythology"],
+        "parts": [
+            {
+                "id": "S4P1",
+                "title": "Pillar of Dust",
+                "cover": "assets/series-part-covers/S4/S4P1.png"
+            },
+            {
+                "id": "S4P2",
+                "title": "Pillar of Ash",
+                "cover": "assets/series-part-covers/S4/S4P2.png"
+            },
+            {
+                "id": "S4P3",
+                "title": "Pillar of Iron",
+                "cover": "assets/series-part-covers/S4/S4P3.png"
+            },
+            {
+                "id": "S4P4",
+                "title": "Pillar of Light",
+                "cover": "assets/series-part-covers/S4/S4P4.png"
+            }
+        ]
     }
 ]
