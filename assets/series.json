@@ -109,5 +109,53 @@
                 "cover": "assets/series-part-covers/S4/S4P4.png"
             }
         ]
+    },
+    {
+        "id": "S5",
+        "title": "Broken Legacy",
+        "cover": "assets/series-covers/SC5.png",
+        "description": "An epic dark fantasy saga of fractured bloodlines, fallen kingdoms, and a throne stained by generations of betrayal. As forgotten vows resurface, the fate of an empire rests upon those history sought to erase.",
+        "genres": [
+            "Dark Fantasy",
+            "Epic Fantasy",
+            "Political Fantasy"
+        ],
+        "parts": [
+            {
+                "id": "S5P1",
+                "title": "Blood on the Threshold",
+                "cover": "assets/series-part-covers/S5/S5P1.png"
+            },
+            {
+                "id": "S5P2",
+                "title": "A Crown of Ash and Iron",
+                "cover": "assets/series-part-covers/S5/S5P2.png"
+            },
+            {
+                "id": "S5P3",
+                "title": "The Bastard’s Litany",
+                "cover": "assets/series-part-covers/S5/S5P3.png"
+            },
+            {
+                "id": "S5P4",
+                "title": "Where the Dead Gather",
+                "cover": "assets/series-part-covers/S5/S5P4.png"
+            },
+            {
+                "id": "S5P5",
+                "title": "The Last Unbroken Vow",
+                "cover": "assets/series-part-covers/S5/S5P5.png"
+            },
+            {
+                "id": "S5P6",
+                "title": "Scars of the Old World",
+                "cover": "assets/series-part-covers/S5/S5P6.png"
+            },
+            {
+                "id": "S5P7",
+                "title": "Requiem for a Throne",
+                "cover": "assets/series-part-covers/S5/S5P7.png"
+            }
+        ]
     }
 ]

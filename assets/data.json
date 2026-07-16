@@ -167,6 +167,15 @@
     "universe": "The Black Carriage Files",
     "categories": ["Horror", "Suspense", "Psychological"]
   },
+  {
+    "id": "B25",
+    "title": "Binary Bloom",
+    "cover": "assets/covers/C25.png",
+    "universe": "The Silicon Garden",
+    "categories": ["Science Fiction", "Cyberpunk", "Thriller"]
+  },
+
+  
 
   
   {
