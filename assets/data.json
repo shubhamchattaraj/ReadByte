@@ -174,6 +174,13 @@
     "universe": "The Silicon Garden",
     "categories": ["Science Fiction", "Cyberpunk", "Thriller"]
   },
+  {
+    "id": "B26",
+    "title": "Whispers from the Obsidian Loom",
+    "cover": "assets/covers/C26.png",
+    "universe": "The Obsidian Loom",
+    "categories": ["Dark Fantasy", "Mystery", "Supernatural"]
+  },
 
   
 
@@ -597,5 +604,257 @@
     "cover": "assets/poem-covers/PC60.png",
     "universe": "Nature",
     "categories": ["Wind", "Freedom"]
+  },
+  {
+    "id": "P61",
+    "title": "Ember Tide",
+    "cover": "assets/poem-covers/PC61.png",
+    "universe": "Nature",
+    "categories": ["Fire", "Ocean"]
+  },
+  {
+    "id": "P62",
+    "title": "Glass Horizon",
+    "cover": "assets/poem-covers/PC62.png",
+    "universe": "Surreal",
+    "categories": ["Sky", "Reflection"]
+  },
+  {
+    "id": "P63",
+    "title": "Wolf Moon",
+    "cover": "assets/poem-covers/PC63.png",
+    "universe": "Folklore",
+    "categories": ["Moon", "Wild"]
+  },
+  {
+    "id": "P64",
+    "title": "Static Bloom",
+    "cover": "assets/poem-covers/PC64.png",
+    "universe": "Cyberpunk",
+    "categories": ["Electricity", "Growth"]
+  },
+  {
+    "id": "P65",
+    "title": "Velvet Static",
+    "cover": "assets/poem-covers/PC65.png",
+    "universe": "Surreal",
+    "categories": ["Dreams", "Electricity"]
+  },
+  {
+    "id": "P66",
+    "title": "Copper Rain",
+    "cover": "assets/poem-covers/PC66.png",
+    "universe": "Industrial",
+    "categories": ["Rain", "Metal"]
+  },
+  {
+    "id": "P67",
+    "title": "Silent Compass",
+    "cover": "assets/poem-covers/PC67.png",
+    "universe": "Adventure",
+    "categories": ["Journey", "Solitude"]
+  },
+  {
+    "id": "P68",
+    "title": "Neon Orchard",
+    "cover": "assets/poem-covers/PC68.png",
+    "universe": "Cyberpunk",
+    "categories": ["Nature", "City"]
+  },
+  {
+    "id": "P69",
+    "title": "Salt & Smoke",
+    "cover": "assets/poem-covers/PC69.png",
+    "universe": "Maritime",
+    "categories": ["Sea", "Memory"]
+  },
+  {
+    "id": "P70",
+    "title": "Hollow Lantern",
+    "cover": "assets/poem-covers/PC70.png",
+    "universe": "Dark Fantasy",
+    "categories": ["Light", "Loneliness"]
+  },
+  {
+    "id": "P71",
+    "title": "Iron Feather",
+    "cover": "assets/poem-covers/PC71.png",
+    "universe": "Fantasy",
+    "categories": ["Strength", "Freedom"]
+  },
+  {
+    "id": "P72",
+    "title": "Midnight Cartographer",
+    "cover": "assets/poem-covers/PC72.png",
+    "universe": "Adventure",
+    "categories": ["Maps", "Night"]
+  },
+  {
+    "id": "P73",
+    "title": "Paper Wildfire",
+    "cover": "assets/poem-covers/PC73.png",
+    "universe": "Literary",
+    "categories": ["Words", "Passion"]
+  },
+  {
+    "id": "P74",
+    "title": "Quiet Voltage",
+    "cover": "assets/poem-covers/PC74.png",
+    "universe": "Cyberpunk",
+    "categories": ["Silence", "Energy"]
+  },
+  {
+    "id": "P75",
+    "title": "Amber Undertow",
+    "cover": "assets/poem-covers/PC75.png",
+    "universe": "Nature",
+    "categories": ["Sea", "Autumn"]
+  },
+  {
+    "id": "P76",
+    "title": "Bone Orchestra",
+    "cover": "assets/poem-covers/PC76.png",
+    "universe": "Gothic",
+    "categories": ["Music", "Mortality"]
+  },
+  {
+    "id": "P77",
+    "title": "Winter's Ledger",
+    "cover": "assets/poem-covers/PC77.png",
+    "universe": "Nature",
+    "categories": ["Winter", "Reflection"]
+  },
+  {
+    "id": "P78",
+    "title": "Shattered Meridian",
+    "cover": "assets/poem-covers/PC78.png",
+    "universe": "Science Fiction",
+    "categories": ["Time", "Destiny"]
+  },
+  {
+    "id": "P79",
+    "title": "Echo Chamber Heart",
+    "cover": "assets/poem-covers/PC79.png",
+    "universe": "Psychological",
+    "categories": ["Emotion", "Memory"]
+  },
+  {
+    "id": "P80",
+    "title": "Violet Static",
+    "cover": "assets/poem-covers/PC80.png",
+    "universe": "Cyberpunk",
+    "categories": ["Electricity", "Dreams"]
+  },
+  {
+    "id": "P81",
+    "title": "Driftwood Kingdom",
+    "cover": "assets/poem-covers/PC81.png",
+    "universe": "Fantasy",
+    "categories": ["Sea", "Kingdom"]
+  },
+  {
+    "id": "P82",
+    "title": "Ashen Waltz",
+    "cover": "assets/poem-covers/PC82.png",
+    "universe": "Dark Fantasy",
+    "categories": ["Ash", "Dance"]
+  },
+  {
+    "id": "P83",
+    "title": "Northern Ember",
+    "cover": "assets/poem-covers/PC83.png",
+    "universe": "Nature",
+    "categories": ["North", "Fire"]
+  },
+  {
+    "id": "P84",
+    "title": "Glass Cathedral",
+    "cover": "assets/poem-covers/PC84.png",
+    "universe": "Gothic",
+    "categories": ["Faith", "Glass"]
+  },
+  {
+    "id": "P85",
+    "title": "Rust & Reverie",
+    "cover": "assets/poem-covers/PC85.png",
+    "universe": "Industrial",
+    "categories": ["Decay", "Dreams"]
+  },
+  {
+    "id": "P86",
+    "title": "Obsidian Tide",
+    "cover": "assets/poem-covers/PC86.png",
+    "universe": "Dark Fantasy",
+    "categories": ["Ocean", "Stone"]
+  },
+  {
+    "id": "P87",
+    "title": "Feral Constellation",
+    "cover": "assets/poem-covers/PC87.png",
+    "universe": "Cosmic",
+    "categories": ["Stars", "Wild"]
+  },
+  {
+    "id": "P88",
+    "title": "Marrow Deep",
+    "cover": "assets/poem-covers/PC88.png",
+    "universe": "Gothic",
+    "categories": ["Darkness", "Depth"]
+  },
+  {
+    "id": "P89",
+    "title": "Sable Horizon",
+    "cover": "assets/poem-covers/PC89.png",
+    "universe": "Nature",
+    "categories": ["Twilight", "Landscape"]
+  },
+  {
+    "id": "P90",
+    "title": "Static Kingdom",
+    "cover": "assets/poem-covers/PC90.png",
+    "universe": "Cyberpunk",
+    "categories": ["Empire", "Electricity"]
+  },
+  {
+    "id": "P91",
+    "title": "Vellum Sky",
+    "cover": "assets/poem-covers/PC91.png",
+    "universe": "Literary",
+    "categories": ["Sky", "Writing"]
+  },
+  {
+    "id": "P92",
+    "title": "Crimson Undertow",
+    "cover": "assets/poem-covers/PC92.png",
+    "universe": "Dark Fantasy",
+    "categories": ["Blood", "Sea"]
+  },
+  {
+    "id": "P93",
+    "title": "Threadbare Sun",
+    "cover": "assets/poem-covers/PC93.png",
+    "universe": "Nature",
+    "categories": ["Light", "Hope"]
+  },
+  {
+    "id": "P94",
+    "title": "Wildfire Psalm",
+    "cover": "assets/poem-covers/PC94.png",
+    "universe": "Epic Poetry",
+    "categories": ["Fire", "Faith"]
+  },
+  {
+    "id": "P95",
+    "title": "Nomad's Compass",
+    "cover": "assets/poem-covers/PC95.png",
+    "universe": "Adventure",
+    "categories": ["Journey", "Destiny"]
+  },
+  {
+    "id": "P96",
+    "title": "Last Ember Standing",
+    "cover": "assets/poem-covers/PC96.png",
+    "universe": "Epic Poetry",
+    "categories": ["Resilience", "Fire"]
   }
 ]
