@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ReadByte | Novels</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#050816;
+    color:#ffffff;
+    overflow-x:hidden;
+    min-height:100vh;
+}
+
+/* ===========================================
+BACKGROUND
+=========================================== */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:
+    radial-gradient(circle at 20% 20%,rgba(139,92,246,.25),transparent 25%),
+    radial-gradient(circle at 80% 30%,rgba(0,191,255,.20),transparent 25%),
+    radial-gradient(circle at 50% 80%,rgba(236,72,153,.15),transparent 30%);
+
+    z-index:-2;
+}
+
+body::after{
+
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:
+
+    linear-gradient(
+        rgba(255,255,255,.02) 1px,
+        transparent 1px
+    ),
+
+    linear-gradient(
+        90deg,
+        rgba(255,255,255,.02) 1px,
+        transparent 1px
+    );
+
+    background-size:50px 50px;
+
+    z-index:-1;
+
+}
+
+/* ===========================================
+NAVBAR
+=========================================== */
+
+nav{
+
+    position:sticky;
+    top:0;
+    z-index:999;
+
+    backdrop-filter:blur(15px);
+
+    background:rgba(5,8,22,.75);
+
+    border-bottom:1px solid rgba(139,92,246,.25);
+
+}
+
+.nav-container{
+
+    max-width:1200px;
+    margin:auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 30px;
+
+}
+
+.logo{
+
+    font-family:'Orbitron',sans-serif;
+    font-size:1.8rem;
+    font-weight:800;
+
+    color:#8b5cf6;
+
+    letter-spacing:3px;
+
+    text-shadow:0 0 20px #8b5cf6;
+
+}
+
+.nav-links{
+
+    display:flex;
+    gap:30px;
+
+}
+
+.nav-links a{
+
+    text-decoration:none;
+    color:#d1d5db;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+
+    color:#60a5fa;
+
+    text-shadow:0 0 12px #60a5fa;
+
+}
+
+/* ===========================================
+HERO
+=========================================== */
+
+.hero{
+
+    padding:90px 20px 60px;
+
+    text-align:center;
+
+}
+
+.hero h1{
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:clamp(3rem,7vw,5rem);
+
+    letter-spacing:5px;
+
+    margin-bottom:25px;
+
+    background:linear-gradient(
+        90deg,
+        #8b5cf6,
+        #60a5fa,
+        #ec4899
+    );
+
+    background-clip:text;
+    -webkit-background-clip:text;
+
+    color:transparent;
+    -webkit-text-fill-color:transparent;
+
+}
+
+.hero p{
+
+    max-width:760px;
+
+    margin:auto;
+
+    color:#cbd5e1;
+
+    font-size:1.1rem;
+
+    line-height:1.9;
+
+}
+
+/* ===========================================
+SEARCH
+=========================================== */
+
+.archive-controls{
+
+    max-width:1200px;
+
+    margin:0 auto 60px;
+
+    padding:0 30px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.search-container{
+
+    position:relative;
+
+    width:450px;
+    max-width:100%;
+
+}
+
+#novelSearch{
+
+    width:100%;
+
+    padding:16px 50px 16px 20px;
+
+    border-radius:14px;
+
+    border:1px solid rgba(96,165,250,.25);
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(15px);
+
+    color:white;
+
+    font-size:1rem;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+#novelSearch::placeholder{
+
+    color:#94a3b8;
+
+}
+
+#novelSearch:focus{
+
+    border-color:#60a5fa;
+
+    box-shadow:
+    0 0 20px rgba(96,165,250,.3);
+
+}
+
+.search-icon{
+
+    position:absolute;
+
+    right:18px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#60a5fa;
+
+    font-size:1.2rem;
+
+    pointer-events:none;
+
+}
+
+/* ===========================================
+SORT
+=========================================== */
+
+.sort-container{
+
+    position:relative;
+
+}
+
+#sortNovels{
+
+    appearance:none;
+
+    min-width:240px;
+
+    padding:16px 50px 16px 20px;
+
+    border-radius:14px;
+
+    border:1px solid rgba(96,165,250,.35);
+
+    background:rgba(255,255,255,.05);
+
+    color:#60a5fa;
+
+    font-family:'Orbitron',sans-serif;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+#sortNovels:hover{
+
+    border-color:#60a5fa;
+
+    box-shadow:
+    0 0 20px rgba(96,165,250,.25);
+
+}
+
+#sortNovels option{
+
+    background:#08111f;
+
+    color:white;
+
+}
+
+.sort-arrow{
+
+    position:absolute;
+
+    right:18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    pointer-events:none;
+
+    color:#60a5fa;
+
+}
+
+/* ===========================================
+NOVEL GRID
+=========================================== */
+
+.novel-grid{
+
+    max-width:1800px;
+
+    margin:50px auto;
+
+    padding:0 30px;
+
+    display:grid;
+
+    grid-template-columns:repeat(6,minmax(0,1fr));
+
+    gap:22px;
+
+}
+
+.novel-card{
+
+    position:relative;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    backdrop-filter:blur(12px);
+
+}
+
+.novel-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(96,165,250,.45);
+
+    box-shadow:
+    0 0 30px rgba(96,165,250,.18);
+
+}
+
+.novel-image{
+
+    position:relative;
+
+    width:100%;
+
+    aspect-ratio:9/16;
+
+    overflow:hidden;
+
+}
+
+.novel-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.6s;
+
+}
+
+.novel-card:hover img{
+
+    transform:scale(1.06);
+
+}
+
+.novel-title{
+
+    min-height:80px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:18px 12px;
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:1.05rem;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+    line-height:1.3;
+
+    background:linear-gradient(
+        180deg,
+        rgba(18,20,42,.95),
+        rgba(7,10,24,1)
+    );
+
+    border-top:1px solid rgba(255,255,255,.06);
+
+}
+
+footer{
+
+    margin-top:100px;
+
+    text-align:center;
+
+    color:#94a3b8;
+
+    padding:40px;
+
+    border-top:1px solid rgba(139,92,246,.2);
+
+}
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="nav-container">
+
+<div class="logo">
+
+READBYTE
+
+</div>
+
+<div class="nav-links">
+<a href="home.html">Home</a>
+<a href="fables.html">Fables</a>
+<a href="poems.html">Poems</a>
+<a href="series.html">Series</a>
+<a href="novels.html">Novels</a>
+<a href="archive-map.html">Archive Map</a>
+<a href="universe.html">Universe Map</a>
+</div>
+
+</div>
+
+</nav>
+
+<section class="hero">
+
+<h1>NOVEL ARCHIVE</h1>
+
+<p>
+
+Discover full-length novels crafted one chapter at a time.
+Explore immersive worlds, unforgettable characters,
+and stories designed for long-form reading.
+
+</p>
+
+</section>
+
+<section class="archive-controls">
+
+<div class="search-container">
+
+<input
+type="text"
+id="novelSearch"
+placeholder="Search Novels..."
+>
+
+<span class="search-icon">
+
+⌕
+
+</span>
+
+</div>
+
+<div class="sort-container">
+
+<select id="sortNovels">
+<option value="default">Archive Order</option>
+<option value="latest">Latest First</option>
+<option value="oldest">Oldest First</option>
+<option value="az">A → Z</option>
+<option value="za">Z → A</option>
+</select>
+
+<span class="sort-arrow">▼</span>
+
+</div>
+
+</section>
+
+<section
+class="novel-grid"
+id="novelGrid">
+
+</section>
+
+<footer>
+
+© 2026 ReadByte • Every Novel Begins With A Single Word
+
+</footer>
+
+<script>
+
+let novels=[];
+
+const grid=document.getElementById("novelGrid");
+
+const searchInput=document.getElementById("novelSearch");
+
+const sortSelect=document.getElementById("sortNovels");
+
+/* ===========================================
+LOAD JSON
+=========================================== */
+
+fetch("assets/novels.json")
+
+.then(response=>response.json())
+
+.then(data=>{
+
+    novels=data;
+
+    renderNovels(data);
+
+});
+
+/* ===========================================
+CREATE CARD
+=========================================== */
+
+function createCard(novel){
+
+    const card=document.createElement("div");
+
+    card.className="novel-card";
+
+    card.innerHTML=`
+
+        <div class="novel-image">
+
+            <img
+            src="${novel.cover}"
+            alt="${novel.title}">
+
+        </div>
+
+        <div class="novel-title">
+
+            ${novel.title}
+
+        </div>
+
+    `;
+
+    card.addEventListener("click",()=>{
+
+        /*
+        Opens reader.html
+
+        reader.html?novel=N1
+        */
+
+        window.location.href=
+        `reader.html?novel=${novel.id}`;
+
+    });
+
+    return card;
+
+}
+
+/* ===========================================
+RENDER GRID
+=========================================== */
+
+function renderNovels(list){
+
+    grid.innerHTML="";
+
+    list.forEach(novel=>{
+
+        grid.appendChild(
+
+            createCard(novel)
+
+        );
+
+    });
+
+}
+
+/* ===========================================
+LIVE SEARCH
+=========================================== */
+
+searchInput.addEventListener("input",()=>{
+
+    const query=
+
+    searchInput.value
+    .trim()
+    .toLowerCase();
+
+    const filtered=
+
+    novels.filter(novel=>{
+
+        const categories=
+        (novel.categories || [])
+        .join(" ")
+        .toLowerCase();
+
+        return(
+
+            novel.title
+            .toLowerCase()
+            .includes(query)
+
+            ||
+
+            (novel.description || "")
+            .toLowerCase()
+            .includes(query)
+
+            ||
+
+            categories.includes(query)
+
+        );
+
+    });
+
+    applySorting(filtered);
+
+});
+
+/* ===========================================
+SORT
+=========================================== */
+
+sortSelect.addEventListener(
+
+    "change",
+
+    ()=>{
+
+        const query=
+
+        searchInput.value
+        .trim()
+        .toLowerCase();
+
+        const filtered=
+
+        novels.filter(novel=>{
+
+            const categories=
+            (novel.categories || [])
+            .join(" ")
+            .toLowerCase();
+
+            return(
+
+                novel.title
+                .toLowerCase()
+                .includes(query)
+
+                ||
+
+                (novel.description || "")
+                .toLowerCase()
+                .includes(query)
+
+                ||
+
+                categories.includes(query)
+
+            );
+
+        });
+
+        applySorting(filtered);
+
+    }
+
+);
+
+/* ===========================================
+APPLY SORTING
+=========================================== */
+
+function applySorting(list){
+
+    const sorted=[...list];
+
+    switch(sortSelect.value){
+
+        case "latest":
+
+            sorted.sort((a,b)=>{
+
+                return parseInt(
+
+                    b.id.substring(1)
+
+                )-
+
+                parseInt(
+
+                    a.id.substring(1)
+
+                );
+
+            });
+
+            break;
+
+        case "oldest":
+
+            sorted.sort((a,b)=>{
+
+                return parseInt(
+
+                    a.id.substring(1)
+
+                )-
+
+                parseInt(
+
+                    b.id.substring(1)
+
+                );
+
+            });
+
+            break;
+
+        case "az":
+
+            sorted.sort((a,b)=>
+
+                a.title.localeCompare(
+                    b.title
+                )
+
+            );
+
+            break;
+
+        case "za":
+
+            sorted.sort((a,b)=>
+
+                b.title.localeCompare(
+                    a.title
+                )
+
+            );
+
+            break;
+
+        default:
+
+            sorted.sort((a,b)=>{
+
+                return parseInt(
+
+                    a.id.substring(1)
+
+                )-
+
+                parseInt(
+
+                    b.id.substring(1)
+
+                );
+
+            });
+
+    }
+
+    renderNovels(sorted);
+
+}
+
+/* ===========================================
+URL SUPPORT
+
+Allows
+
+novels.html?id=N1
+
+=========================================== */
+
+const params=
+
+new URLSearchParams(
+    window.location.search
+);
+
+const novelID=
+
+params.get("id");
+
+if(novelID){
+
+    fetch("assets/novels.json")
+
+    .then(r=>r.json())
+
+    .then(data=>{
+
+        const novel=
+
+        data.find(
+
+            n=>n.id===novelID
+
+        );
+
+        if(novel){
+
+            showNovel(novel);
+
+        }
+
+    });
+
+}
+
+/* ===========================================
+HELPER
+
+Find novel by ID
+
+=========================================== */
+
+function getNovel(id){
+
+    return novels.find(
+
+        novel=>novel.id===id
+
+    );
+
+}
+
+/* ===========================================
+UTILITY
+
+Scroll to top whenever sorting/searching
+
+=========================================== */
+
+function scrollTopSmooth(){
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+searchInput.addEventListener(
+
+    "input",
+
+    scrollTopSmooth
+
+);
+
+sortSelect.addEventListener(
+
+    "change",
+
+    scrollTopSmooth
+
+);
+
+/* ===========================================
+EMPTY SEARCH MESSAGE
+=========================================== */
+
+const emptyMessage=document.createElement("div");
+
+emptyMessage.id="emptyMessage";
+
+emptyMessage.style.display="none";
+
+emptyMessage.style.textAlign="center";
+
+emptyMessage.style.padding="80px 20px";
+
+emptyMessage.style.color="#94a3b8";
+
+emptyMessage.innerHTML=`
+
+<h2
+style="
+font-family:Orbitron;
+letter-spacing:2px;
+margin-bottom:20px;
+">
+
+NO NOVELS FOUND
+
+</h2>
+
+<p>
+
+Try searching with another title,
+genre or keyword.
+
+</p>
+
+`;
+
+grid.after(emptyMessage);
+
+/* ===========================================
+OVERRIDE RENDER
+=========================================== */
+
+const originalRender=renderNovels;
+
+renderNovels=function(list){
+
+    originalRender(list);
+
+    if(list.length===0){
+
+        emptyMessage.style.display="block";
+
+    }
+
+    else{
+
+        emptyMessage.style.display="none";
+
+    }
+
+};
+
+/* ===========================================
+LOADING ANIMATION
+=========================================== */
+
+loader.innerHTML=`
+
+<div
+style="
+padding:100px;
+text-align:center;
+font-family:Orbitron;
+letter-spacing:3px;
+color:#60a5fa;
+">
+
+Loading Archive...
+
+</div>
+
+`;
+
+grid.appendChild(loader);
+
+/* ===========================================
+KEYBOARD SHORTCUT
+
+Press "/"
+to focus search
+
+=========================================== */
+
+document.addEventListener(
+
+    "keydown",
+
+    function(e){
+
+        if(
+
+            e.key==="/"
+
+            &&
+
+            document.activeElement!==searchInput
+
+        ){
+
+            e.preventDefault();
+
+            searchInput.focus();
+
+        }
+
+    }
+
+);
+
+/* ===========================================
+ESC clears search
+
+=========================================== */
+
+document.addEventListener(
+
+    "keydown",
+
+    function(e){
+
+        if(e.key==="Escape"){
+
+            searchInput.value="";
+
+            applySorting(novels);
+
+        }
+
+    }
+
+);
+
+/* ===========================================
+END
+
+=========================================== */
+
+</script>
+
+</body>
+
+</html>

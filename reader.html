@@ -268,23 +268,28 @@ const params = new URLSearchParams(window.location.search);
 
 const bookId = params.get("book");
 const poemId = params.get("poem");
+const novelId = params.get("novel");
 const seriesId = params.get("series");
 const partId = params.get("part");
 
-const itemId = bookId || poemId || partId;
+const itemId = bookId || poemId || novelId || partId;
 
 const isPoem = poemId !== null;
+const isNovel = novelId !== null;
 const isSeries = seriesId !== null;
 
-document.querySelector(".archive").innerText=
+document.querySelector(".archive").innerText =
 
 isSeries
 ? "READBYTE SERIES"
 
+: isNovel
+? "READBYTE NOVEL"
+
 : isPoem
 ? "READBYTE POETRY"
 
-: "READBYTE DIGITAL ARCHIVE";
+: "READBYTE FABLE";
 
 if(isSeries){
 
@@ -338,46 +343,57 @@ if(isSeries){
 
 else{
 
-    fetch("assets/data.json")
+    const metadataFile =
+        isNovel
+        ? "assets/novels.json"
+        : "assets/data.json";
+
+    fetch(metadataFile)
 
     .then(response=>response.json())
 
     .then(data=>{
 
-        const book=
-        data.find(item=>item.id===itemId);
+        const item =
+        data.find(i=>i.id===itemId);
 
-        if(!book)
-            throw new Error("Book not found");
+        if(!item)
+            throw new Error("Item not found");
 
-        document.getElementById("title").innerText=
-        book.title;
+        document.getElementById("title").innerText =
+        item.title;
 
-        const folder=isPoem ? "poems" : "books";
+        let folder;
+
+        if(isNovel)
+            folder="novels";
+
+        else if(isPoem)
+            folder="poems";
+
+        else
+            folder="books";
 
         return fetch(
             `assets/${folder}/${itemId}.md`
         );
 
     })
+    .then(r => r.text())
 
-    .then(r=>r.text())
+    .then(text => {
 
-    .then(text=>{
-
-        document.getElementById("content").innerText=text;
+        document.getElementById("content").innerText = text;
 
     })
 
-    .catch(error=>{
+    .catch(err => {
 
-        document.getElementById("title").innerText="Error";
+        document.getElementById("title").innerText = "Error";
 
-        document.getElementById("content").innerText=
-        error.message;
+        document.getElementById("content").innerText = err.message;
 
     });
-
 }
 
 let currentFontSize = 1.15;
@@ -392,10 +408,9 @@ document
     }
 
     else{
-        window.location.href=
-        isPoem
-        ? "poems.html"
-        : "stories.html";
+        if(isNovel){window.location.href="novels.html";}
+        else if(isPoem){window.location.href="poems.html";}
+        else{window.location.href="fables.html";}
     }
 });
 
@@ -494,7 +509,11 @@ document
 
     else{
 
-        fetch("assets/data.json")
+        fetch(
+        isNovel
+        ? "assets/novels.json"
+        : "assets/data.json"
+        )
 
         .then(r=>r.json())
 
@@ -508,14 +527,18 @@ document
             const next=
             data[(current+1)%data.length];
 
-            window.location.href=
-
-            isPoem
-
-            ? `reader.html?poem=${next.id}`
-
-            : `reader.html?book=${next.id}`;
-
+            if(isNovel){
+                window.location.href =
+                `reader.html?novel=${next.id}`;
+            }
+            else if(isPoem){
+                window.location.href =
+                `reader.html?poem=${next.id}`;
+            }
+            else{
+                window.location.href =
+                `reader.html?book=${next.id}`;
+            }
         });
 
     }

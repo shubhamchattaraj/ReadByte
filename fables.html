@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReadByte | Stories</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#050816;
+color:#ffffff;
+overflow-x:hidden;
+min-height:100vh;
+}
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 20% 20%,rgba(139,92,246,.25),transparent 25%),
+radial-gradient(circle at 80% 30%,rgba(0,191,255,.20),transparent 25%),
+radial-gradient(circle at 50% 80%,rgba(236,72,153,.15),transparent 30%);
+z-index:-2;
+}
+
+body::after{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+background-size:50px 50px;
+z-index:-1;
+}
+
+nav{
+position:sticky;
+top:0;
+z-index:1000;
+backdrop-filter:blur(15px);
+background:rgba(5,8,22,.75);
+border-bottom:1px solid rgba(139,92,246,.25);
+}
+
+.nav-container{
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 30px;
+}
+
+.logo{
+font-family:'Orbitron',sans-serif;
+font-size:1.8rem;
+font-weight:800;
+letter-spacing:3px;
+color:#8b5cf6;
+text-shadow:0 0 20px #8b5cf6;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#d1d5db;
+font-weight:500;
+transition:.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+color:#60a5fa;
+text-shadow:0 0 10px #60a5fa;
+}
+
+.hero{
+padding:90px 20px 60px;
+text-align:center;
+}
+
+.hero h1{
+font-family:'Orbitron',sans-serif;
+font-size:clamp(3rem,7vw,5rem);
+letter-spacing:5px;
+margin-bottom:20px;
+background:linear-gradient(90deg,#8b5cf6,#60a5fa,#ec4899);
+background-clip:text;
+-webkit-background-clip:text;
+color:transparent;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+max-width:700px;
+margin:auto;
+color:#cbd5e1;
+font-size:1.1rem;
+line-height:1.8;
+}
+
+.story-grid{
+    max-width:1800px;
+    margin:60px auto;
+    padding:0 30px;
+    display:grid;
+    grid-template-columns:
+    repeat(6, minmax(0,1fr));
+    gap:22px;
+}
+
+.story-card{
+    background:
+    rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    overflow:hidden;
+    transition:.3s;
+    cursor:pointer;
+    backdrop-filter:blur(12px);
+}
+
+.story-card:hover{
+    transform:translateY(-8px);
+    border-color:
+    rgba(96,165,250,.5);
+    box-shadow:
+    0 0 25px rgba(96,165,250,.18);
+}
+
+.story-image{
+    width:100%;
+    aspect-ratio: 9/16;
+    object-fit:cover;
+    display:block;
+}
+
+.story-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.6s;
+}
+
+.story-content{
+    padding:15px;
+}
+
+.story-title{
+    font-size:1rem;
+    line-height:1.4;
+    margin-bottom:8px;
+}
+
+.story-meta{
+    font-size:.75rem;
+}
+
+.story-title{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+
+padding:18px 20px;
+
+font-family:'Orbitron',sans-serif;
+font-size:1rem;
+letter-spacing:1px;
+text-align:center;
+color:#fff;
+
+background:linear-gradient(
+to top,
+rgba(5,8,22,.98),
+rgba(5,8,22,.75),
+transparent
+);
+
+backdrop-filter:blur(10px);
+}
+
+.story-card:hover img{
+transform:scale(1.06);
+}
+
+footer{
+border-top:1px solid rgba(139,92,246,.2);
+padding:30px;
+text-align:center;
+color:#94a3b8;
+}
+
+.archive-controls{
+    max-width:1200px;
+    margin:0 auto 50px;
+    padding:0 30px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.search-container{
+    position:relative;
+    width:450px;
+}
+
+#storySearch{
+    width:100%;
+    padding:16px 50px 16px 20px;
+    border-radius:14px;
+    border:1px solid rgba(96,165,250,.25);
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(15px);
+    color:white;
+    font-size:1rem;
+    outline:none;
+    transition:.3s;
+}
+
+#storySearch:focus{
+    border-color:#60a5fa;
+    box-shadow:
+        0 0 20px rgba(96,165,250,.25);
+}
+
+.search-icon{
+    position:absolute;
+    right:18px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#60a5fa;
+    font-size:1.2rem;
+}
+
+.sort-container{
+    position:relative;
+}
+
+#sortStories{
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    min-width:220px;
+    padding:16px 50px 16px 20px;
+    border-radius:14px;
+    border:1px solid rgba(96,165,250,.35);
+    background:
+        rgba(255,255,255,.05);
+    color:#60a5fa;
+    font-family:'Orbitron',sans-serif;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    backdrop-filter:blur(15px);
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:
+        0 0 15px rgba(96,165,250,.15);
+}
+
+#sortStories:hover{
+    border-color:#60a5fa;
+    box-shadow:
+        0 0 20px rgba(96,165,250,.3);
+}
+
+#sortStories:focus{
+    border-color:#60a5fa;
+    box-shadow:
+        0 0 25px rgba(96,165,250,.4);
+}
+
+#sortStories option{
+    background:#08111f;
+    color:white;
+}
+
+.sort-arrow{
+    position:absolute;
+    right:18px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#60a5fa;
+    pointer-events:none;
+    text-shadow:
+        0 0 10px #60a5fa;
+}
+
+</style>
+
+</head>
+<body>
+
+<nav>
+<div class="nav-container">
+<div class="logo">READBYTE</div>
+
+<div class="nav-links">
+<a href="home.html">Home</a>
+<a href="fables.html">Fables</a>
+<a href="poems.html">Poems</a>
+<a href="series.html">Series</a>
+<a href="novels.html">Novels</a>
+<a href="archive-map.html">Archive Map</a>
+<a href="universe.html">Universe Map</a>
+</div>
+</div>
+</nav>
+
+<section class="hero">
+<h1>FABLES ARCHIVE</h1>
+<p>
+Browse the growing collection of mysteries, strange encounters, impossible moments, and fables waiting to be uncovered.
+</p>
+</section>
+
+<section class="archive-controls">
+
+    <div class="search-container">
+
+        <input
+        type="text"
+        id="storySearch"
+        placeholder="Search Archive..."
+        >
+
+        <span class="search-icon">⌕</span>
+
+    </div>
+
+    <div class="sort-container">
+
+        <select id="sortStories">
+
+            <option value="default">
+                Archive Order
+            </option>
+
+            <span class="sort-arrow">▼</span>
+
+            <option value="latest">
+                Latest First
+            </option>
+
+            <option value="oldest">
+                Oldest First
+            </option>
+
+            <option value="az">
+                A → Z
+            </option>
+
+            <option value="za">
+                Z → A
+            </option>
+
+        </select>
+
+    </div>
+
+</section>
+
+<section class="story-grid" id="storyGrid">
+
+</section>
+
+<footer>
+© 2026 ReadByte • Digital Archive of Original Stories
+</footer>
+
+<script>
+
+let stories = [];
+
+fetch("assets/data.json")
+.then(res => res.json())
+.then(data => {
+
+    stories = data.filter(item => item.id.startsWith("B"));
+
+    renderStories(stories);
+
+});
+
+function renderStories(data){
+
+    const grid = document.getElementById("storyGrid");
+
+    grid.innerHTML = "";
+
+    data.forEach(story=>{
+
+        grid.innerHTML += `
+        <div class="story-card"
+        onclick="location.href='reader.html?book=${story.id}'">
+
+            <div class="story-image">
+                <img
+                src="${story.cover}"
+                alt="${story.title}"
+                loading="lazy">
+            </div>
+
+            <div class="story-title">
+                ${story.title.toUpperCase()}
+            </div>
+
+        </div>
+        `;
+
+    });
+
+}
+
+const searchInput = document.getElementById("storySearch");
+
+searchInput.addEventListener("input", () => {
+
+    const value = searchInput.value.toLowerCase();
+
+    const filtered = stories.filter(story =>
+        story.title.toLowerCase().includes(value)
+    );
+
+    renderStories(filtered);
+
+});
+
+const sortSelect = document.getElementById("sortStories");
+
+sortSelect.addEventListener("change", () => {
+
+    let sorted = [...stories];
+
+    switch(sortSelect.value){
+
+        case "latest":
+            sorted.sort((a,b)=>
+                Number(b.id.slice(1))-
+                Number(a.id.slice(1))
+            );
+            break;
+
+        case "oldest":
+            sorted.sort((a,b)=>
+                Number(a.id.slice(1))-
+                Number(b.id.slice(1))
+            );
+            break;
+
+        case "az":
+            sorted.sort((a,b)=>
+                a.title.localeCompare(b.title)
+            );
+            break;
+
+        case "za":
+            sorted.sort((a,b)=>
+                b.title.localeCompare(a.title)
+            );
+            break;
+    }
+
+    renderStories(sorted);
+
+});
+
+</script>
+
+</body>
+</html>

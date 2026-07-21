@@ -159,27 +159,98 @@ text-shadow:
 }
 
 .hero-btn{
-display:inline-block;
-padding:16px 40px;
-font-size:1rem;
-font-weight:600;
-text-decoration:none;
-color:white;
-border:1px solid rgba(139,92,246,.6);
-border-radius:12px;
-background:rgba(139,92,246,.15);
-backdrop-filter:blur(10px);
-box-shadow:
-0 0 15px rgba(139,92,246,.4),
-0 0 40px rgba(96,165,250,.2);
-transition:.3s;
+    position:relative;
+    overflow:hidden;
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    min-width:240px;
+    padding:18px 42px;
+    border-radius:16px;
+    text-decoration:none;
+    color:#ffffff;
+    font-family:'Orbitron',sans-serif;
+    font-size:.95rem;
+    font-weight:600;
+    letter-spacing:1px;
+    background:rgba(236,72,153,.08);
+    border:1px solid rgba(236,72,153,.45);
+    backdrop-filter:blur(16px);
+    box-shadow:
+        inset 0 0 15px rgba(255,255,255,.03),
+        0 0 12px rgba(236,72,153,.18),
+        0 0 35px rgba(236,72,153,.10);
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease,
+        background .35s ease;
+}
+
+.hero-btn::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:60%;
+    height:100%;
+    background:
+    linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.28),
+        transparent
+    );
+    transform:skewX(-25deg);
+    transition:1s;
+}
+
+.hero-btn::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:16px;
+    padding:1px;
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,.18),
+        rgba(236,72,153,.75),
+        rgba(255,255,255,.18)
+    );
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+    pointer-events:none;
 }
 
 .hero-btn:hover{
-transform:translateY(-4px);
-box-shadow:
-0 0 25px rgba(139,92,246,.7),
-0 0 60px rgba(96,165,250,.4);
+    transform:
+        translateY(-6px)
+        scale(1.03);
+    border-color:
+    rgba(236,72,153,.8);
+    background:
+    rgba(236,72,153,.14);
+    box-shadow:
+        inset 0 0 20px rgba(255,255,255,.05),
+        0 0 25px rgba(236,72,153,.35),
+        0 0 70px rgba(236,72,153,.25);
+}
+
+.hero-btn:hover::before{
+    left:170%;
+}
+
+.hero-btn:active{
+    transform:
+        translateY(-2px)
+        scale(.98);
 }
 
 .hero-actions{
@@ -189,53 +260,6 @@ box-shadow:
     gap:20px;
     flex-wrap:wrap;
     margin-bottom:15px;
-}
-
-.archive-btn{
-    border:1px solid rgba(255,215,0,.65);
-    background:rgba(255,215,0,.10);
-    box-shadow:
-        0 0 15px rgba(255,215,0,.35),
-        0 0 45px rgba(255,193,7,.18);
-}
-
-.archive-btn:hover{
-    box-shadow:
-        0 0 30px rgba(255,215,0,.8),
-        0 0 70px rgba(255,193,7,.45);
-}
-
-.archive-row{
-    width: fit-content;
-    margin: 20px auto 0;
-}
-
-.series-btn{
-    border:1px solid rgba(236,72,153,.6);
-    background:rgba(236,72,153,.12);
-    box-shadow:
-        0 0 15px rgba(236,72,153,.35),
-        0 0 40px rgba(236,72,153,.15);
-}
-
-.series-btn:hover{
-    box-shadow:
-        0 0 25px rgba(236,72,153,.7),
-        0 0 60px rgba(236,72,153,.35);
-}
-
-.poem-btn{
-    border:1px solid rgba(96,165,250,.6);
-    background:rgba(96,165,250,.12);
-    box-shadow:
-        0 0 15px rgba(96,165,250,.35),
-        0 0 40px rgba(96,165,250,.15);
-}
-
-.poem-btn:hover{
-    box-shadow:
-        0 0 25px rgba(96,165,250,.7),
-        0 0 60px rgba(96,165,250,.35);
 }
 
 .about{
@@ -371,6 +395,8 @@ animation:pulseGlow 12s ease-in-out infinite;
     text-align:center;
     backdrop-filter:blur(15px);
     transition:.3s;
+    position:relative;
+    overflow:hidden;
 }
 
 .status-card:hover{
@@ -412,9 +438,10 @@ animation:pulseGlow 12s ease-in-out infinite;
 
 <div class="nav-links">
 <a href="home.html">Home</a>
-<a href="stories.html">Stories</a>
+<a href="fables.html">Fables</a>
 <a href="poems.html">Poems</a>
 <a href="series.html">Series</a>
+<a href="novels.html">Novels</a>
 <a href="archive-map.html">Archive Map</a>
 <a href="universe.html">Universe Map</a>
 </div>
@@ -440,16 +467,24 @@ DIGITAL FICTION ARCHIVE || EST. 2026
 
 <div class="hero-actions">
 
-    <a href="stories.html" class="hero-btn">
-        Explore Stories
+    <a href="fables.html" class="hero-btn">
+        Explore Fables
     </a>
 
     <a href="poems.html" class="hero-btn poem-btn">
         Explore Poems
     </a>
 
+</div>
+
+<div class="hero-actions">
+
     <a href="series.html" class="hero-btn series-btn">
         Explore Series
+    </a>
+
+    <a href="novels.html" class="hero-btn novel-btn">
+        Explore Novels
     </a>
 
 </div>
@@ -493,6 +528,11 @@ DIGITAL FICTION ARCHIVE || EST. 2026
     </div>
 
     <div class="status-card">
+        <span id="novelCount">0</span>
+        <p>Novels Archived</p>
+    </div>
+
+    <div class="status-card">
         <span id="categoryCount">0</span>
         <p>Categories Indexed</p>
     </div>
@@ -517,11 +557,6 @@ DIGITAL FICTION ARCHIVE || EST. 2026
         <p>Connected Nodes</p>
     </div>
 
-    <div class="status-card">
-        <span class="online">ONLINE</span>
-        <p>Archive Status</p>
-    </div>
-
 </section>
 
 <footer>
@@ -541,88 +576,70 @@ const days = Math.floor(
 document.getElementById("archiveAge").textContent =
     days + " Days";
 
-fetch("assets/stats.json")
-.then(r=>r.json())
-.then(stats=>{
+Promise.all([
+    fetch("assets/data.json").then(r => r.json()),
+    fetch("assets/series.json").then(r => r.json()),
+    fetch("assets/novels.json").then(r => r.json()),
+    fetch("assets/stats.json").then(r => r.json())
+])
+.then(([data, series, novels, stats]) => {
 
+    // Stats
     document.getElementById("wordCount").textContent =
         stats.totalWords.toLocaleString();
 
-    const minutes = Math.ceil(stats.totalWords / 200);
+const storyMinutes = stats.storyWords / 250;
+    const poemMinutes = stats.poemWords / 120;
+    const seriesMinutes = stats.seriesWords / 250;
+    const novelMinutes = stats.novelWords / 260;
 
-    const hours = Math.floor(minutes / 60);
-    const mins = minutes % 60;
+    const totalMinutes = Math.ceil(
+        storyMinutes +
+        poemMinutes +
+        seriesMinutes +
+        novelMinutes
+    );
+
+    const hours = Math.floor(totalMinutes / 60);
+    const mins = totalMinutes % 60;
 
     document.getElementById("readingTime").textContent =
         `${hours}h ${mins}m`;
 
-});
-
-fetch("assets/data.json")
-.then(response => response.json())
-.then(data => {
-
     // Stories & Poems
+    const stories = data.filter(item => item.id.startsWith("B"));
+    const poems = data.filter(item => item.id.startsWith("P"));
 
-    const stories =
-        data.filter(item => item.id.startsWith("B"));
-
-    const poems =
-        data.filter(item => item.id.startsWith("P"));
-
-    document.getElementById("storyCount").textContent =
-        stories.length;
-
-    document.getElementById("poemCount").textContent =
-        poems.length;
+    document.getElementById("storyCount").textContent = stories.length;
+    document.getElementById("poemCount").textContent = poems.length;
+    document.getElementById("seriesCount").textContent = series.length;
+    document.getElementById("novelCount").textContent = novels.length;
 
     // Universes
-
-    const universes =
-        [...new Set(
-            data.map(book => book.universe)
-        )];
-
-    document.getElementById("universeCount").textContent =
-        universes.length;
+    const universes = [...new Set(data.map(item => item.universe))];
+    document.getElementById("universeCount").textContent = universes.length;
 
     // Categories
+    let categories = [
+        ...data.flatMap(item => item.categories),
+        ...series.flatMap(item => item.genres),
+        ...novels.flatMap(item => item.categories)
+    ];
 
-    let categories =
-        [...new Set(
-            data.flatMap(book => book.categories)
-        )];;
-    
-    fetch("assets/series.json")
-    .then(response => response.json())
-    .then(series => {
+    categories = [...new Set(categories)];
+    document.getElementById("categoryCount").textContent = categories.length;
 
-        document.getElementById("seriesCount").textContent =
-            series.length;
-
-        categories = [
-            ...categories,
-            ...series.flatMap(book => book.genres)
-        ];
-
-        categories = [...new Set(categories)];
-
-        document.getElementById("categoryCount").textContent =
-            categories.length;
-
-        const connectedNodes =
-            stories.length +
-            poems.length +
-            series.length +
-            universes.length +
-            categories.length;
-
-        document.getElementById("connectedNodes").textContent =
-            connectedNodes;
-    });
+    // Connected Nodes
+    document.getElementById("connectedNodes").textContent =
+        stories.length +
+        poems.length +
+        series.length +
+        novels.length +
+        universes.length +
+        categories.length;
 
 })
-.catch(error => {console.error(error);});
+.catch(console.error);
 
 </script>
 

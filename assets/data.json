@@ -856,5 +856,425 @@
     "cover": "assets/poem-covers/PC96.png",
     "universe": "Epic Poetry",
     "categories": ["Resilience", "Fire"]
+  },
+  {
+    "id": "P97",
+    "title": "Frostbitten Anthem",
+    "cover": "assets/poem-covers/PC97.png",
+    "universe": "Nature",
+    "categories": ["Winter", "Hope"]
+  },
+  {
+    "id": "P98",
+    "title": "Quicksilver Vow",
+    "cover": "assets/poem-covers/PC98.png",
+    "universe": "Fantasy",
+    "categories": ["Promise", "Alchemy"]
+  },
+  {
+    "id": "P99",
+    "title": "Paper Moon Radio",
+    "cover": "assets/poem-covers/PC99.png",
+    "universe": "Surreal",
+    "categories": ["Memory", "Night"]
+  },
+  {
+    "id": "P100",
+    "title": "Gravity's Understudy",
+    "cover": "assets/poem-covers/PC100.png",
+    "universe": "Science Fiction",
+    "categories": ["Space", "Physics"]
+  },
+  {
+    "id": "P101",
+    "title": "Cobalt Requiem",
+    "cover": "assets/poem-covers/PC101.png",
+    "universe": "Gothic",
+    "categories": ["Blue", "Elegy"]
+  },
+  {
+    "id": "P102",
+    "title": "Weathervane Confession",
+    "cover": "assets/poem-covers/PC102.png",
+    "universe": "Nature",
+    "categories": ["Wind", "Reflection"]
+  },
+  {
+    "id": "P103",
+    "title": "Tinfoil Constellation",
+    "cover": "assets/poem-covers/PC103.png",
+    "universe": "Cosmic",
+    "categories": ["Stars", "Imagination"]
+  },
+  {
+    "id": "P104",
+    "title": "Ashfall Serenade",
+    "cover": "assets/poem-covers/PC104.png",
+    "universe": "Dark Fantasy",
+    "categories": ["Ash", "Music"]
+  },
+  {
+    "id": "P105",
+    "title": "Static Cathedral",
+    "cover": "assets/poem-covers/PC105.png",
+    "universe": "Cyberpunk",
+    "categories": ["Electricity", "Architecture"]
+  },
+  {
+    "id": "P106",
+    "title": "Lighthouse in Reverse",
+    "cover": "assets/poem-covers/PC106.png",
+    "universe": "Surreal",
+    "categories": ["Sea", "Mystery"]
+  },
+  {
+    "id": "P107",
+    "title": "Barefoot Meridian",
+    "cover": "assets/poem-covers/PC107.png",
+    "universe": "Adventure",
+    "categories": ["Journey", "Earth"]
+  },
+  {
+    "id": "P108",
+    "title": "Smoke Signal Sonnet",
+    "cover": "assets/poem-covers/PC108.png",
+    "universe": "Literary",
+    "categories": ["Poetry", "Communication"]
+  },
+  {
+    "id": "P109",
+    "title": "Halfmoon Contraband",
+    "cover": "assets/poem-covers/PC109.png",
+    "universe": "Noir",
+    "categories": ["Moon", "Secrets"]
+  },
+  {
+    "id": "P110",
+    "title": "Tidewater Alibi",
+    "cover": "assets/poem-covers/PC110.png",
+    "universe": "Maritime",
+    "categories": ["Ocean", "Mystery"]
+  },
+  {
+    "id": "P111",
+    "title": "Ferrous Lullaby",
+    "cover": "assets/poem-covers/PC111.png",
+    "universe": "Industrial",
+    "categories": ["Metal", "Sleep"]
+  },
+  {
+    "id": "P112",
+    "title": "Cartography of Rust",
+    "cover": "assets/poem-covers/PC112.png",
+    "universe": "Post-Apocalyptic",
+    "categories": ["Maps", "Decay"]
+  },
+  {
+    "id": "P113",
+    "title": "Windowpane Alchemy",
+    "cover": "assets/poem-covers/PC113.png",
+    "universe": "Fantasy",
+    "categories": ["Glass", "Magic"]
+  },
+  {
+    "id": "P114",
+    "title": "Kerosene Hymn",
+    "cover": "assets/poem-covers/PC114.png",
+    "universe": "Dark Fantasy",
+    "categories": ["Fire", "Faith"]
+  },
+  {
+    "id": "P115",
+    "title": "Broken Compass Rose",
+    "cover": "assets/poem-covers/PC115.png",
+    "universe": "Adventure",
+    "categories": ["Compass", "Destiny"]
+  },
+  {
+    "id": "P116",
+    "title": "Ledger of Ash",
+    "cover": "assets/poem-covers/PC116.png",
+    "universe": "Epic Poetry",
+    "categories": ["History", "Ash"]
+  },
+  {
+    "id": "P117",
+    "title": "Wildflower Insurgency",
+    "cover": "assets/poem-covers/PC117.png",
+    "universe": "Nature",
+    "categories": ["Wildflowers", "Rebellion"]
+  },
+  {
+    "id": "P118",
+    "title": "Glasswing Elegy",
+    "cover": "assets/poem-covers/PC118.png",
+    "universe": "Fantasy",
+    "categories": ["Butterfly", "Elegy"]
+  },
+  {
+    "id": "P119",
+    "title": "Midwinter Contraption",
+    "cover": "assets/poem-covers/PC119.png",
+    "universe": "Steampunk",
+    "categories": ["Winter", "Machinery"]
+  },
+  {
+    "id": "P120",
+    "title": "Architecture of Fog",
+    "cover": "assets/poem-covers/PC120.png",
+    "universe": "Surreal",
+    "categories": ["Fog", "Architecture"]
+  },
+  {
+    "id": "P121",
+    "title": "Sable Runaway",
+    "cover": "assets/poem-covers/PC121.png",
+    "universe": "Noir",
+    "categories": ["Escape", "Night"]
+  },
+  {
+    "id": "P122",
+    "title": "Tinbell Prophecy",
+    "cover": "assets/poem-covers/PC122.png",
+    "universe": "Fantasy",
+    "categories": ["Prophecy", "Mysticism"]
+  },
+  {
+    "id": "P123",
+    "title": "Undertow Confession",
+    "cover": "assets/poem-covers/PC123.png",
+    "universe": "Maritime",
+    "categories": ["Sea", "Secrets"]
+  },
+  {
+    "id": "P124",
+    "title": "Quiet Arsonist",
+    "cover": "assets/poem-covers/PC124.png",
+    "universe": "Psychological",
+    "categories": ["Fire", "Silence"]
+  },
+  {
+    "id": "P125",
+    "title": "Migration of Ash",
+    "cover": "assets/poem-covers/PC125.png",
+    "universe": "Dark Fantasy",
+    "categories": ["Ash", "Journey"]
+  },
+  {
+    "id": "P126",
+    "title": "Copperline Vespers",
+    "cover": "assets/poem-covers/PC126.png",
+    "universe": "Industrial",
+    "categories": ["Evening", "Copper"]
+  },
+  {
+    "id": "P127",
+    "title": "Featherweight Apocalypse",
+    "cover": "assets/poem-covers/PC127.png",
+    "universe": "Post-Apocalyptic",
+    "categories": ["End Times", "Hope"]
+  },
+  {
+    "id": "P128",
+    "title": "Static Age Lullaby",
+    "cover": "assets/poem-covers/PC128.png",
+    "universe": "Cyberpunk",
+    "categories": ["Electricity", "Dreams"]
+  },
+  {
+    "id": "P129",
+    "title": "Physics of Longing",
+    "cover": "assets/poem-covers/PC129.png",
+    "universe": "Science Fiction",
+    "categories": ["Love", "Physics"]
+  },
+  {
+    "id": "P130",
+    "title": "Salt Circuit",
+    "cover": "assets/poem-covers/PC130.png",
+    "universe": "Cyberpunk",
+    "categories": ["Ocean", "Technology"]
+  },
+  {
+    "id": "P131",
+    "title": "Wolfsbane Radio",
+    "cover": "assets/poem-covers/PC131.png",
+    "universe": "Folklore",
+    "categories": ["Radio", "Myth"]
+  },
+  {
+    "id": "P132",
+    "title": "Last Cartographer",
+    "cover": "assets/poem-covers/PC132.png",
+    "universe": "Adventure",
+    "categories": ["Maps", "Legacy"]
+  },
+  {
+    "id": "P133",
+    "title": "Ember & Frostline",
+    "cover": "assets/poem-covers/PC133.png",
+    "universe": "Nature",
+    "categories": ["Fire", "Ice"]
+  },
+  {
+    "id": "P134",
+    "title": "Hollow Constellation",
+    "cover": "assets/poem-covers/PC134.png",
+    "universe": "Cosmic",
+    "categories": ["Stars", "Void"]
+  },
+  {
+    "id": "P135",
+    "title": "Weight of Feathers",
+    "cover": "assets/poem-covers/PC135.png",
+    "universe": "Surreal",
+    "categories": ["Freedom", "Balance"]
+  },
+  {
+    "id": "P136",
+    "title": "Vellum Undone",
+    "cover": "assets/poem-covers/PC136.png",
+    "universe": "Literary",
+    "categories": ["Pages", "Memory"]
+  },
+  {
+    "id": "P137",
+    "title": "Driftglass Kingdom",
+    "cover": "assets/poem-covers/PC137.png",
+    "universe": "Fantasy",
+    "categories": ["Sea", "Kingdom"]
+  },
+  {
+    "id": "P138",
+    "title": "Smokestack Serenade",
+    "cover": "assets/poem-covers/PC138.png",
+    "universe": "Industrial",
+    "categories": ["Smoke", "Music"]
+  },
+  {
+    "id": "P139",
+    "title": "Geometry of Ash",
+    "cover": "assets/poem-covers/PC139.png",
+    "universe": "Surreal",
+    "categories": ["Ash", "Patterns"]
+  },
+  {
+    "id": "P140",
+    "title": "Rustbelt Hymnal",
+    "cover": "assets/poem-covers/PC140.png",
+    "universe": "Industrial",
+    "categories": ["Decay", "Faith"]
+  },
+  {
+    "id": "P141",
+    "title": "Runaway Winter",
+    "cover": "assets/poem-covers/PC141.png",
+    "universe": "Nature",
+    "categories": ["Winter", "Journey"]
+  },
+  {
+    "id": "P142",
+    "title": "Compass of Smoke",
+    "cover": "assets/poem-covers/PC142.png",
+    "universe": "Adventure",
+    "categories": ["Compass", "Mist"]
+  },
+  {
+    "id": "P143",
+    "title": "Amberlight Requiem",
+    "cover": "assets/poem-covers/PC143.png",
+    "universe": "Fantasy",
+    "categories": ["Light", "Elegy"]
+  },
+  {
+    "id": "P144",
+    "title": "Tinroof Symphony",
+    "cover": "assets/poem-covers/PC144.png",
+    "universe": "Urban",
+    "categories": ["Rain", "Music"]
+  },
+  {
+    "id": "P145",
+    "title": "Undoing of Stars",
+    "cover": "assets/poem-covers/PC145.png",
+    "universe": "Cosmic",
+    "categories": ["Stars", "Entropy"]
+  },
+  {
+    "id": "P146",
+    "title": "Faultline Waltz",
+    "cover": "assets/poem-covers/PC146.png",
+    "universe": "Nature",
+    "categories": ["Earth", "Dance"]
+  },
+  {
+    "id": "P147",
+    "title": "Nightshade Radio",
+    "cover": "assets/poem-covers/PC147.png",
+    "universe": "Noir",
+    "categories": ["Night", "Broadcast"]
+  },
+  {
+    "id": "P148",
+    "title": "Cartographer's Ash",
+    "cover": "assets/poem-covers/PC148.png",
+    "universe": "Post-Apocalyptic",
+    "categories": ["Maps", "Ash"]
+  },
+  {
+    "id": "P149",
+    "title": "Hollow Moonlight Wireframe",
+    "cover": "assets/poem-covers/PC149.png",
+    "universe": "Cyberpunk",
+    "categories": ["Moon", "Digital"]
+  },
+  {
+    "id": "P150",
+    "title": "Wildflower",
+    "cover": "assets/poem-covers/PC150.png",
+    "universe": "Nature",
+    "categories": ["Bloom", "Freedom"]
+  },
+  {
+    "id": "P151",
+    "title": "The Long Static",
+    "cover": "assets/poem-covers/PC151.png",
+    "universe": "Cyberpunk",
+    "categories": ["Silence", "Signal"]
+  },
+  {
+    "id": "P152",
+    "title": "Rust Constellation",
+    "cover": "assets/poem-covers/PC152.png",
+    "universe": "Cosmic",
+    "categories": ["Stars", "Rust"]
+  },
+  {
+    "id": "P153",
+    "title": "Ashen Compass",
+    "cover": "assets/poem-covers/PC153.png",
+    "universe": "Adventure",
+    "categories": ["Journey", "Ash"]
+  },
+  {
+    "id": "P154",
+    "title": "Vellum Kingdom",
+    "cover": "assets/poem-covers/PC154.png",
+    "universe": "Fantasy",
+    "categories": ["Books", "Kingdom"]
+  },
+  {
+    "id": "P155",
+    "title": "Copper Requiem",
+    "cover": "assets/poem-covers/PC155.png",
+    "universe": "Industrial",
+    "categories": ["Metal", "Elegy"]
+  },
+  {
+    "id": "P156",
+    "title": "Last Light Cartographer",
+    "cover": "assets/poem-covers/PC156.png",
+    "universe": "Adventure",
+    "categories": ["Maps", "Legacy"]
   }
 ]

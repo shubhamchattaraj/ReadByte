@@ -174,9 +174,10 @@ margin-bottom:8px;
 
 <div class="nav-links">
 <a href="home.html">Home</a>
-<a href="stories.html">Stories</a>
+<a href="fables.html">Fables</a>
 <a href="poems.html">Poems</a>
 <a href="series.html">Series</a>
+<a href="novels.html">Novels</a>
 <a href="archive-map.html">Archive Map</a>
 <a href="universe.html">Universe Map</a>
 </div>
@@ -214,8 +215,9 @@ Select a node to inspect the network.
 
 Promise.all([
     fetch("assets/data.json").then(r => r.json()),
-    fetch("assets/series.json").then(r => r.json())
-]).then(([data, seriesData]) => {
+    fetch("assets/series.json").then(r => r.json()),
+    fetch("assets/novels.json").then(r => r.json())
+]).then(([data, seriesData, novelData]) => {
 
 const nodes = [];
 const links = [];
@@ -240,6 +242,11 @@ nodes.push({
     type:"library"
 });
 
+nodes.push({
+    id:"NOVELS",
+    type:"library"
+});
+
 links.push({
     source:"READBYTE",
     target:"STORIES",
@@ -255,6 +262,12 @@ links.push({
 links.push({
     source:"READBYTE",
     target:"SERIES",
+    type:"library"
+});
+
+links.push({
+    source:"READBYTE",
+    target:"NOVELS",
     type:"library"
 });
 
@@ -406,6 +419,12 @@ nodes.find(n => n.id === "SERIES");
 seriesNode.fx = 0;
 seriesNode.fy = 700;
 
+const novelsNode =
+nodes.find(n => n.id === "NOVELS");
+
+novelsNode.fx = 0;
+novelsNode.fy = -700;
+
 const storyNodes =
 nodes.filter(n=>n.type==="story");
 
@@ -540,6 +559,97 @@ seriesData.forEach(series => {
     });
 
 });
+
+novelData.forEach(novel => {
+
+    nodes.push({
+        id: novel.title,
+        type: "novel",
+        data: novel
+    });
+
+    links.push({
+        source: "NOVELS",
+        target: novel.title,
+        type: "library"
+    });
+
+    const universeId =
+        novel.title + "_UNIVERSE";
+
+    nodes.push({
+        id: universeId,
+        name: novel.universe,
+        type: "universe"
+    });
+
+    links.push({
+        source: novel.title,
+        target: universeId,
+        type: "meta"
+    });
+
+    novel.categories.forEach(category => {
+
+        const id =
+            novel.title + "_" + category;
+
+        nodes.push({
+            id,
+            name: category,
+            type: "category"
+        });
+
+        links.push({
+            source: novel.title,
+            target: id,
+            type: "meta"
+        });
+
+    });
+
+});
+
+const novelNodes = nodes.filter(n => n.type === "novel");
+
+const novelCenterX = 0;
+const novelCenterY = -700;
+
+if (novelNodes.length === 1) {
+
+    novelNodes[0].fx = novelCenterX;
+    novelNodes[0].fy = novelCenterY;
+
+} else {
+
+    let current = 0;
+    let ring = 0;
+
+    while (current < novelNodes.length) {
+
+        const radius = 140 + ring * 90;
+
+        const nodesThisRing = Math.min(
+            6 + ring * 6,
+            novelNodes.length - current
+        );
+
+        for (let i = 0; i < nodesThisRing; i++) {
+
+            const angle = (2 * Math.PI * i) / nodesThisRing;
+
+            novelNodes[current].fx =
+                novelCenterX + Math.cos(angle) * radius;
+
+            novelNodes[current].fy =
+                novelCenterY + Math.sin(angle) * radius;
+
+            current++;
+        }
+
+        ring++;
+    }
+}
 
 const seriesNodes = nodes.filter(n => n.type === "series");
 
@@ -689,7 +799,7 @@ else if(node.type === "universe"){
     label = "";
 }
 
-else if(node.type === "story"){
+else if(node.type === "story" || node.type === "novel"){
     label = node.data.id;
 }
 
@@ -822,6 +932,27 @@ else if(node.type==="series"){
     ctx.shadowColor="#EC4899";
 }
 
+else if(node.type==="novel"){
+
+    ctx.fillStyle="#F59E0B";
+
+    ctx.beginPath();
+
+    ctx.arc(
+        node.x,
+        node.y,
+        5,
+        0,
+        Math.PI*2
+    );
+
+    ctx.fill();
+
+    ctx.shadowBlur=15;
+    ctx.shadowColor="#F59E0B";
+
+}
+
 else if(node.type==="part"){
 
     ctx.fillStyle="#F472B6";
@@ -918,7 +1049,11 @@ return 1;
 const panel =
 document.getElementById("infoPanel");
 
-if(node.type === "story" || node.type === "poem" || node.type === "series" || node.type === "part"){
+if(node.type === "story" ||
+   node.type === "poem" ||
+   node.type === "series" ||
+   node.type === "part" ||
+   node.type === "novel"){
 
 let details = "";
 
@@ -947,7 +1082,15 @@ else if(node.type === "part"){
 else{
 
     details = `
-    Type: ${node.type === "poem" ? "Poem" : "Story"}
+    Type:
+    ${
+        node.type === "poem"
+            ? "Poem"
+        : node.type === "novel"
+            ? "Novel"
+            : "Story"
+    }
+
     <br>
     ID: ${node.data.id}
     <br>
